@@ -10,7 +10,7 @@ module.exports = function(app, passport) {
   // LOGIN ====================================================================
   // show the login form
   app.get('/login', function(req, res) {
-
+    redirectToProfileIfLoggedIn(req,res);
     // render the page and pass in any flash data if it exists
     res.render('login.ejs', { message: req.flash('loginMessage') }); 
   });
@@ -25,6 +25,7 @@ module.exports = function(app, passport) {
   // SIGNUP ===================================================================
   // show the signup form
   app.get('/signup', function(req, res) {
+    redirectToProfileIfLoggedIn(req,res);
     // render the page and pass in any flash data if it exists
     res.render('signup.ejs', { message: req.flash('signupMessage') });
   });
@@ -63,4 +64,10 @@ function isLoggedIn(req, res, next) {
 
   // if they aren't redirect them to the home page
   res.redirect('/');
+}
+
+function redirectToProfileIfLoggedIn(req, res) {
+  if (req.isAuthenticated()) {
+    res.redirect('/profile')
+  }
 }

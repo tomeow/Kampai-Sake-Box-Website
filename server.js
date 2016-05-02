@@ -5,7 +5,8 @@
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 8080;
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
+var mongoDbURI = process.env.MONGODB_URI || 'mongodb://localhost/kbs_db';
 var passport = require('passport');
 var flash    = require('connect-flash');
 var path     = require("path");
@@ -37,36 +38,20 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 // app.use(express.session({secret:'something'}));
-var mongoDbURI = process.env.MONGODB_URI || 'mongodb://localhost/kbs_db';
+
 app.use(session({
     secret:'secret',
     maxAge: new Date(Date.now() + 3600000),
-    store: new MongoStore(
-        { mongooseConnection: mongoose.connection },
+    store: new MongoStore({ mongooseConnection: mongoose.connection },
         function(err){
             console.log(err || 'connect-mongodb setup ok');
         })
-}));
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-
-// myApp.use(function middleware1(req, res, next) {
-//   // middleware 1
-//   next();
-// });
-// myApp.use(function middleware2(req, res, next) {
-//   // middleware 2
-//   next();
-// })
-
-// //Users don't have to re-authenticate when I restart my node server
-// app.use(session({
-//     secret: 'foo',
-//     store: new MongoStore(options)
-// }));
-
 
 // routes ======================================================================
 require('./login_registration/app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
