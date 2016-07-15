@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+{{ checkout.page() }}
+
+{% endblock %}
+
+{% block page_javascript %}
+<script type="text/javascript">
+  $(document).ready(function(e) {
+  $('.coupon_section').prepend("<div class='checkout_text' >We currently only ship to California. Adult signature required to receive a box.</div>");
+  $('#checkout_button').html('PLACE ORDER')
+  });
+  $('select[name=country] option').filter(function () { return $(this).html().trim() != "United States"; }).remove();
+  $('select[name=state] option').filter(function () { return $(this).html().trim() != "California"; }).remove();
+  $("#checkout_form .cta button").text("Pay Now");
+
+  $("<div class='terms_conditions'><p class='disclaimer'>By clicking below, you confirm that you accept the Terms and Conditions and that you acknowledge that your subscription has an initial and recurring payment feature and you accept responsibility for all recurring charges prior to cancellation. You can cancel your subscription at any time from your account page or by emailing info@kampaisakebox.com. You must certify that you are 21 years of age or older at the time of purchase.</p><input type='checkbox' name='terms' /> I confirm that I am 21 years of age or older and agree to the <a href='/terms-and-conditions'>terms and conditions</a></div>").insertBefore("#checkout_form .cta");
+  
+  $("#checkout_form .cta button").prop('disabled', true);
+  
+  $('#checkout_form input[name=terms]').click(function() {
+    var $this = $(this); 
+    if($this.is(":checked")) {
+      console.log("Checked");
+      $("#checkout_form .cta button").prop('disabled', false);
+    } else {
+      $("#checkout_form .cta button").prop('disabled', true);
+    }
+  });
+</script>
+{% endblock %}

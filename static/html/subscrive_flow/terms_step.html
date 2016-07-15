@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% block title %}{{ flow_step.page_title | default("Choose a Term", True) }}{% endblock %}
+
+{% block page_content %}
+<!--{% from "subscribe_flow/progress_bar.html" import progress_bar %}
+{{ progress_bar(flow_data, flow_step) }}
+-->
+<div class="banner_section inner_banner subscribe_banner term_banner">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div class="banner_cnt">
+     <h1 data-barley="subscribe_banner_text" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      start your sake
+journey today!
+     </h1>
+     <div data-barley="subscribe_banner_text_sub" data-barley-editor="advanced">
+      <h4>
+       <span style="font-weight: normal; color:#fff;">
+        We have limited quantity available.
+        <br>
+       </span>
+       <span style="font-weight: normal;color:#fff;">
+        Don't miss the opportunity!
+       </span>
+      </h4>
+     </div>
+    </div>
+   </div>
+   <!--<div class="col-md-6">
+    <div class="banner_img" data-barley="subscribe_banner_image" data-barley-editor="simple">
+     <img src="{{ 'images/inner_banner_img.png' | asset_url }}" alt="inner_banner_img"/>
+    </div>
+   </div>-->
+  </div>
+ </div>
+</div>
+<div class="sake_box_content_sec">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <h3 data-barley="sake_box_content_head1" data-barley-editor="simple">
+     Every Kampai Sake Box Includes:
+    </h3>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-12">
+    <div class="kampai_box_image barley_hide_outline" data-barley="sake_box_content_image1" data-barley-editor="image" contenteditable="false">
+     <img src="{{ 'images/boxpic2.png' | asset_url }}" alt="image"/>
+    </div>
+    <div class="kampai_content_list barley_hide_outline" data-barley="sake_box_content_list" data-barley-editor="advanced" contenteditable="false">
+     <ul>
+      <li>
+       3 Sake Tasters
+      </li>
+      <li>
+       Drinking Advice from Sake Brewers
+      </li>
+      <li>
+       Cocktail or Food Recipe
+      </li>
+      <li>
+       Seasonal Greeting from Japan
+      </li>
+      <li>
+       A Special Surprise
+      </li>
+     </ul>
+    </div>
+    <div class="kampai_box_image barley_hide_outline" data-barley="sake_box_content_image2" data-barley-editor="image" contenteditable="false">
+     <img src="{{ 'images/SAMPLES.png' | asset_url }}" alt="image"/>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="content_section">
+ <div class="container">
+  <div class="how_its_heading">
+   <div class="row">
+    <div class="col-md-12">
+     <h1 data-barley="subscribe_head" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      <span style="font-weight: normal;">
+       CHOOSE YOUR PLAN
+      </span>
+     </h1>
+     <p data-barley="subscribe_subhead" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      Ship bi-monthly • Free shipping on All Boxes • We currently ship ONLY to California
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="subscribe_section">
+   <div class="row">
+    {#
+                    Loop over each of the term price objects attached the chosen product instance and display the enabled term prices
+                #}
+                {% for term in flow_step.terms %}
+                {% if term.enabled %}
+    <!-- Begin term -->
+    {#
+                        Uses a placeholder image for every term. This can be changed to use a different image for each term using the visual designer.
+                    #}
+    <div class="col-md-4">
+     <div class="subscribe_box subscribe_box_product">
+      <!-- Term Name -->
+      <h2 data-barley="term_name_{{ term.id }}" data-barley-editor="simple">
+       {{ term.name }}
+      </h2>
+      {#
+            Display the term price formatted properly for the current store currency
+      #}
+      <h3>
+       {{ (term.price/term.num_cycles) | currency(0) }}
+      </h3>
+      <h4>
+       Per Box
+      </h4>
+      <h5 data-barley="term_shipping_{{ term.id }}" data-barley-editor="simple">
+       FREE SHIPPING
+      </h5>
+      <div class="tital_price" data-barley="term_tatal_price_{{ term.id }}" data-barley-editor="simple">
+       Tatal Price $37
+      </div>
+      {#
+        Creates a link which advances the subscribe flow to the next step, choosing the current subscription term as well any previously specified product and variants
+      #}
+      <div class="button_box">
+       <a type="button" href="{{ term | subscribe_flow_url }}" class="red" data-barley="terms-continue-button_{{ term.id }}" data-barley-editor="link">
+        choose Plan
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- End term -->
+    {% endif %}
+                {% endfor %}
+   </div>
+   <div class="subscribe_auto">
+    <p data-barley="subscribe_automatic_renew" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+     <i>
+      Plans automatically renew.  Easily skip or cancel anytime from your account.
+     </i>
+     <br>
+      <i>
+       Your first box will be shipped on August 1st, 2016.
+      </i>
+    </p>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="drinking_section">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6">
+   </div>
+   <div class="col-md-6">
+    <div class="drinking_text">
+     <h1 data-barley="drinking_for_good" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      <span style="font-weight: normal;">
+       SAKE FOR A
+      </span>
+      <div>
+       <span style="font-weight: normal;">
+        GOOD CAUSE
+       </span>
+      </div>
+     </h1>
+     <p data-barley="drinking_for_good_text" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      With every Kampai Sake Box you buy, subscribe to or give, not only are you embarking on a cultural journey, you are also helping those in need. We donate 10% of profits to charities that we carefully choose semi-annually. We are committed to helping those in need.  Let's make a difference together.  Kampai!
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!--<div class="subscribe_contact">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <h2 data-barley="contact_for_large_orders" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+     <b>
+      Please contact us for large quantity orders and customized gifts
+     </b>
+    </h2>
+   </div>
+  </div>
+ </div>
+</div>-->
+{% endblock %}

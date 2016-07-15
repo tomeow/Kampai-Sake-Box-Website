@@ -1,0 +1,155 @@
+<!-- If you're looking for the shared template that contains -->
+<!-- the header and footer, look in html/base.html -->
+{% extends "base.html" %}
+
+
+{% block page_content %}
+<div class="banner_section inner_banner subscribe_banner giftbox_banner">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div class="banner_cnt barley_hide_outline" contenteditable="false" data-barley="gift_box_banner_head" data-barley-editor="advanced">
+     <h1>
+      bring happiness
+     </h1>
+     <h4>
+      <span style="font-weight: normal; color:#fff;">
+       Gift Sake Subscription to provide continuous Kampai to your loved ones
+      </span>
+     </h4>
+    </div>
+   </div>
+   <!--<div class="col-md-6">
+                <div class="banner_img" data-barley="gift_box_banner_image" data-barley-editor="image"><img src="{{ 'images/gift_banner_img.png' | asset_url }}" alt="gift_banner_img" /></div>
+            </div>-->
+  </div>
+ </div>
+</div>
+<div class="sake_box_content_sec">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <h3 data-barley="sake_box_content_head1" data-barley-editor="simple">
+     Every Kampai Sake Box Includes:
+    </h3>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-12">
+    <div class="kampai_box_image barley_hide_outline" data-barley="sake_box_content_image3" data-barley-editor="image" contenteditable="false">
+     <img src="{{ 'images/boxpic2.png' | asset_url }}" alt="image"/>
+    </div>
+    <div class="kampai_content_list barley_hide_outline" data-barley="sake_box_content_list1" data-barley-editor="advanced" contenteditable="false">
+     <ul>
+      <li>
+       3 Sake Tasters
+      </li>
+      <li>
+       Drinking Advice from Sake Brewers
+      </li>
+      <li>
+       Cocktail or Food Recipe
+      </li>
+      <li>
+       Seasonal Greeting from Japan
+      </li>
+      <li>
+       A Special Surprise
+      </li>
+     </ul>
+    </div>
+    <div class="kampai_box_image barley_hide_outline" data-barley="sake_box_content_image4" data-barley-editor="image" contenteditable="false">
+     <img src="{{ 'images/SAMPLES.png' | asset_url }}" alt="image"/>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="content_section">
+ <div class="container">
+  <div class="how_its_heading">
+   <div class="row">
+    <div class="col-md-12">
+     <h1 class="barley_hide_outline" contenteditable="false" data-barley="gift_box_content_head" data-barley-editor="simple">
+      <span style="font-weight: normal;">
+       CHOOSE YOUR GIFT PLAN
+      </span>
+     </h1>
+     <p class="barley_hide_outline" contenteditable="false" data-barley="gift_box_content_sub_head" data-barley-editor="simple">
+      All box are Free shipping ・ We currently ship ONLY to California
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="subscribe_section">
+   <div class="row">
+    {% set my_list_unsorted = [] %}
+            {% set initial_order = [316938103, 316960203, 316960869] %}
+            {% for i in initial_order %}
+              {% for product in store.shop_products(category='gift-box') %}
+                  {% if product.id == i %}
+                    {% set product_image = 'images/store_img1.jpg' | asset_url %}
+                    {% if(product.images|length)>0 %}{% set product_image = product.images[0].url %}{% endif %}
+    <div class="col-md-4">
+     <div class="subscribe_box subscribe_box_product">
+      <h2>
+       {{ product.name }}
+      </h2>
+      <h3 data-barley="gift_box_price_{{ product.id }}" data-barley-editor="simple">
+       $37
+       <!--{% set min = product.calc_min_ecom_price() %}
+                                    {% set max = product.calc_max_ecom_price() %}
+    
+                                    {% if max == min %}
+                                        <span class="price">{{ min | currency(0) }}</span>
+                                    {% else %}
+                                        <span class="price">{{ min | currency(0) }} - {{ max | currency(0) }}</span>
+                                    {% endif %}-->
+      </h3>
+      <h4 data-barley="gift_boxper_{{ product.id }}" data-barley-editor="simple">
+       Per Box
+      </h4>
+      <h5>
+       FREE SHIPPING
+      </h5>
+      <div class="button_box">
+       <form action="/cart/add" method="POST">
+        <input name="quantity" type="hidden" value="1"/>
+        <input name="product_id" type="hidden" value="{{ product.id }}"/>
+        <input name="product_name" type="hidden" value="{{ product.name }}"/>
+        <button class="add-button red" type="submit">
+         Choose Box
+        </button>
+       </form>
+      </div>
+     </div>
+    </div>
+    {% endif %}       
+                {% endfor %}        
+            {% endfor %}
+   </div>
+  </div>
+ </div>
+</div>
+<div class="subscribe_gift_message">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6">
+    <div class="gift_message">
+     <h1 data-barley="message_card_head" data-barley-editor="simple">
+      MESSAGE CARD
+     </h1>
+     <h2 class="barley_hide_outline" contenteditable="false" data-barley="message_card_sub_head" data-barley-editor="simple">
+      Make your gift even more personal by adding a message at checkout
+     </h2>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="image barley_hide_outline" contenteditable="false" data-barley="message_card_image" data-barley-editor="image">
+     <img alt="gift_card" src="{{ 'images/kampaicard_clipped_rev_1.png' | asset_url }}"/>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+<!-- If you're looking for the shared template that contains -->
+<!-- the header and footer, look in html/base.html -->
+{% extends "base.html" %}
+
+
+
+{% block page_content %}
+<div class="content_section">
+ <div class="container">
+  <div class="how_its_heading">
+   <div class="row">
+    <div class="col-md-12">
+     <div data-barley="banner_gift" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+      <h1>
+       <span style="font-weight: normal;">
+        GIFT CHOICES
+       </span>
+      </h1>
+      <p>
+       Choose your gift type
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="subscribe_section">
+   <div class="row">
+    <div class="col-sm-6">
+     <div class="subscribe_box gift_item_box barley_hide_outline" contenteditable="false">
+      <div class="image barley_hide_outline" data-barley="gift_box_1" data-barley-editor="image" contenteditable="false">
+       <img src="{{ 'images/GIFT_SUBSCRIPTIONS.jpg' | asset_url }}" alt="oru_box_img1"/>
+      </div>
+      <h2 data-barley="gift_box_1_gift" data-barley-editor="text" contenteditable="false" class="barley_hide_outline">
+       Gift Subscriptions
+      </h2>
+      <p data-barley="gift_box_1_pay" data-barley-editor="text" contenteditable="false" class="barley_hide_outline">
+       You pay just once. We will make sure your gift receiver experiences 1, 6 or 12 months of amazing Sake boxes! Shipment will follow our bi-monthly schedule. Next shipment will be in August 1st.
+      </p>
+      <div class="button_box">
+       <a href="/gift-boxes" class="a barley_hide_outline" data-barley="gift_box_link" data-barley-editor="link" contenteditable="false">
+        Gift Subscription Box
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="col-sm-6">
+     <div class="subscribe_box gift_item_box barley_hide_outline" contenteditable="false">
+      <div class="image barley_hide_outline" data-barley="gift_box_2" data-barley-editor="image" contenteditable="false">
+       <img src="{{ 'images/GIFT_SPECIAL.jpg' | asset_url }}" alt="gift_img2"/>
+      </div>
+      <h2 data-barley="gift_box_2_spl" data-barley-editor="text" contenteditable="false" class="barley_hide_outline">
+       Specialty Gifts
+      </h2>
+      <p data-barley="gift_box_2_send" data-barley-editor="text" contenteditable="false" class="barley_hide_outline">
+       Send the perfect gift today, featuring an array of authentic Japanese Sake and related accouterments available in our shop. We offer a range of different gifts for different occasions.
+      </p>
+      <div class="button_box">
+       <a href="/shop" class="red barley_hide_outline" data-barley="shope_product_link" data-barley-editor="link" contenteditable="false">
+        Gift Individual Bottle
+       </a>
+      </div>
+      <p>
+       <br>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="subscribe_gift_message">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6">
+    <div class="gift_message barley_hide_outline" data-barley="gift_message" data-barley-editor="advanced" contenteditable="false">
+     <h1>
+      MESSAGE CARD
+     </h1>
+     <h2>
+      Make your gift even more personal by adding a message at checkout
+     </h2>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="image barley_hide_outline" data-barley="gift_message_img" data-barley-editor="image" contenteditable="false">
+     <img src="{{ 'images/kampaicard_clipped_rev_1.png' | asset_url }}" alt="gift_card"/>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="tankyou_mail">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div class="thankyou_mail_image barley_hide_outline" contenteditable="false" data-barley="japanese_head" data-barley-editor="image">
+     <img alt="image" src="{{ 'images/japanese-2.png?ts=1467088972&host=kampaisakebox.cratejoy.com' | asset_url }}">
+     </img>
+    </div>
+    <div class="thankyou_mail_content barley_hide_outline" contenteditable="false" data-barley="thankyou_mail_content" data-barley-editor="advanced">
+     <h2>
+      WELCOME
+     </h2>
+     <p>
+      Welcome to our community! Celebrating our grand opening, please use the code
+      <strong>
+       "KAMPAI10"
+      </strong>
+      to receive 10% off your first month and get started only for $35.10!
+     </p>
+     <div class="thankyou_mail_butns">
+      <a class="blu_btn" href="https://kampaisakebox.cratejoy.com/subscribe/">
+       GET STARTED
+      </a>
+      <a class="dark_btn" href="https://kampaisakebox.cratejoy.com/gift">
+       GIVE A GIFT
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="bottle_image barley_hide_outline" contenteditable="false" data-barley="sake_bottle_content" data-barley-editor="image">
+  <img alt src="{{ 'images/Thankyoupage.jpg' | asset_url }}"/>
+ </div>
+</div>
+{% endblock %}

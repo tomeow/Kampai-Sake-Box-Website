@@ -1,0 +1,51 @@
+{#
+  This fragment renders the HTML for the subscription product list by looping over every product that is visible
+#}
+
+<div class="row content products"> <!-- Begin product list -->
+  {% for product in store.visible_subscription_products %}
+
+  <div class="item product"> <!-- Begin product -->
+    <a href="{{ product | product_subscribe_url(gift=gift) }}">
+      <div class="image-container" data-barley="{% if gift %}gift.{% endif %}product.{{ product.id }}.img" data-barley-editor="image">
+        {#
+          Creates an image tag if one is uploaded to the product model. Otherwise it creates an image tag from the default image (images/product_placeholder.jpg)
+        #}
+        {{ product | object_img_tag(default_img_path='images/285x190_product.svg', css_class="img-responsive") }}
+      </div>
+    </a>
+
+    <div class="information">
+      <!-- Product Name -->
+      <div class="name-container line-limited">
+        <div class="name">
+          {{ product.name | safe }}
+        </div>
+      </div>
+
+      <div class="price">
+        {#
+          Creates a <p></p> containing either the actual price of the product or a price range (in the case that there are terms to be chosen)
+        #}
+        {{ product | get_price_or_price_range }}
+      </div>
+
+      {#
+        Creates a link which advances the subscribe flow to the next step, choosing the current product
+      #}
+      <a type="button" href="{{ product | product_subscribe_url(gift=gift) }}" data-barley="{% if gift %}gift.{% endif %}btn_text.{{ product.id }}" data-barley-editor="link" class="btn btn-large btn-primary">choose</a>
+
+      <div class="description-container line-limited">
+        <div class="description">
+          {#
+            Renders the product description if one exists, otherwise uses the default string
+          #}
+          {{ product.description | default("", True) }}
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- End product -->
+
+  {% endfor %}
+</div> <!-- End product list -->

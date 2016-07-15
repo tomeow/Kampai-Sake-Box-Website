@@ -1,0 +1,29 @@
+{# This page is inserted into the framework defined by "base.html" #}
+{% extends "base.html" %}
+
+{% block body_class %}thanks{% endblock %}
+
+{#
+  Everything inside the page_content block is inserted into the main content area
+  of the page as defined by "base.html"
+#}
+{% block page_content %}
+<div class="content_section">
+    <div class="container">
+        <section class="order row"> <!-- Begin order section -->
+                <div class="row content">
+                    <div class="col-sm-12">
+                    <!-- The HTML for the order thank you page is rendered automatically by Cratejoy and
+                            cannot be modified. You can change the way it looks by editing the css though.
+                            There are examples of this in css/style.css
+                    -->
+                    {{ customer_helper.order_page("Thank you!") }}
+                    </div>
+                </div>
+        </section> <!-- End order section -->
+    </div>
+</div>
+<script>
+ fbq('track', 'Purchase');
+</script>
+{% endblock %}

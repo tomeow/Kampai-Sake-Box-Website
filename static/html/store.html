@@ -1,0 +1,113 @@
+<!-- If you're looking for the shared template that contains -->
+<!-- the header and footer, look in html/base.html -->
+{% extends "base.html" %}
+
+
+
+{% block page_content %}
+<div class="content_section">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div class="store_box_section">
+     <h1 class="text-center barley_hide_outline" data-barley="gift_heading" data-barley-editor="text" contenteditable="false">
+      <span style="font-weight: normal;">
+       OUR SELECTIONS
+      </span>
+     </h1>
+     <div class="row">
+      {% for product in store.shop_products(category='product-box') %}
+        {% set product_image = 'images/store_img1.jpg' | asset_url %}
+        {% if(product.images|length)>0 %}{% set product_image = product.images[0].url %}{% endif %}
+      <div class="col-md-4 col-sm-6">
+       <div class="store_box">
+        <a href="/shop/product/{{ product.id }}">
+         <div class="image">
+          <img src="{{ product_image }}" alt="store_img1"/>
+         </div>
+        </a>
+        <h2>
+         {{ product.name }}
+        </h2>
+        <h3>
+         {% set min = product.calc_min_ecom_price() %}
+            {% set max = product.calc_max_ecom_price() %}
+
+            {% if max == min %}
+         <span class="price">
+          {{ min | currency(0) }}
+         </span>
+         {% else %}
+         <span class="price">
+          {{ min | currency(0) }} - {{ max | currency(0) }}
+         </span>
+         {% endif %}
+        </h3>
+        <!--<div class="addtocart">
+         <a href="/shop/product/{{ product.id }}">
+          ADD TO CART
+         </a>
+        </div>-->
+       </div>
+      </div>
+      {% endfor %}
+     </div>
+    </div>
+    <!--<div class="store_box_section">
+     <h1 class="text-center">
+      Other Items
+     </h1>
+     <div class="row">
+      {% for product in store.shop_products(category='other-box') %}
+            {% set product_image = 'images/store_img1.jpg' | asset_url %}
+            {% if(product.images|length)>0 %}{% set product_image = product.images[0].url %}{% endif %}
+      <div class="col-md-3 col-sm-6">
+       <div class="store_box">
+        <div class="image">
+         <img src="{{ product_image }}" alt="store_img1"/>
+        </div>
+        <h2>
+         {{ product.name }}
+        </h2>
+        <h3>
+         {% set min = product.calc_min_ecom_price() %}
+            {% set max = product.calc_max_ecom_price() %}
+
+            {% if max == min %}
+         <span class="price">
+          {{ min | currency(0) }}
+         </span>
+         {% else %}
+         <span class="price">
+          {{ min | currency(0) }} - {{ max | currency(0) }}
+         </span>
+         {% endif %}
+        </h3>
+        <div class="addtocart">
+         <a href="/shop/product/{{ product.id }}">
+          ADD TO CART
+         </a>
+        </div>
+       </div>
+      </div>
+      {% endfor %}
+     </div>
+    </div>-->
+   </div>
+  </div>
+ </div>
+</div>
+<div class="subscribe_contact">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div data-barley="subscribe_contact" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+     <h4>
+      Please contact us for large quantity orders and customized gifts
+     </h4>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}

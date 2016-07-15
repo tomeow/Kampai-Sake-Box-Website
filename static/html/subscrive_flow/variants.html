@@ -1,0 +1,64 @@
+{#
+  This fragment renders the HTML for choosing the next unspecified variant for the chosen product
+#}
+
+{% set variant = unspecified_variants[0] %}
+
+<div class="row content variants"> <!-- Begin variant list -->
+  {#
+    Loop over each of the variant value objects attached the current variant
+  #}
+
+  {% for value in possible_values %}
+
+  <div class="item prod_variant"> <!-- Begin variant -->
+      <div class="image-container" >
+        {#
+          Creates an image tag if one is uploaded to the variant value model. Otherwise it creates an image tag from
+          the default image (images/variant_placeholder.jpg
+        #}
+        {{ value | object_img_tag(default_img_path='images/285x190_variant.svg', css_class="img-responsive") }}
+      </div>
+
+      <div class="information">
+        <!-- Variant value -->
+        <div class="name-container line-limited">
+              <div>
+            <div>
+              {{ value.value }}
+            </div>
+          </div>
+        </div>
+
+        <h2 class="price">
+          {#
+            Creates a <p></p> containing either the actual price of the product with this value chosen
+            or a price range (in the case that there are terms to be chosen)
+          #}
+          {{ product | get_price_or_price_range(value.variant_type, values=chosen_values + [value]) }}
+        </h2>
+
+        {#
+          Creates a link which advances the subscribe flow to the next step, choosing the current variant value
+        #}
+        <a type="button" href="{{ product | product_subscribe_url(chosen_values, value, gift=gift) }}" data-barley="{% if gift %}gift.{% endif %}btn_text.{{ value.id }}" data-barley-editor="link" class="btn btn-large btn-primary">choose</a>
+
+        <div class="description-container line-limited">
+              <div>
+                <div class="description">
+            {#
+              Renders the variant value description if one exists, otherwise uses the default string
+            #}
+            {{ value.description | default("", True) }}
+            </div>
+              </div>
+           </div>
+
+
+
+
+      </div>
+    </div> <!-- End variant -->
+
+  {% endfor %}
+</div> <!-- End variant list -->

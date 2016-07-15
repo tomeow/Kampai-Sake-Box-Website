@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+{% block title %}Product{% endblock %}
+
+{% block override_metatags %}
+<meta property="og:url" content="{{ product | product_ecom_url(http=True) }}"/>
+{% if product.images %}
+<meta property="og:image" content="{{ product.calc_image_url() | og_url }}"/>
+{% endif %}
+{% endblock %}
+
+{% block css %}
+    {{ 'css/ecom.css' | asset_url | stylesheet_tag }}
+    {{ 'css/product-reviews.css' | asset_url | stylesheet_tag }}
+  {{ 'css/plugins/pikachoose/base.css' | asset_url | stylesheet_tag }}
+
+{% endblock %}
+
+{% block page_content %}
+<div class="content_section">
+ <div class="container">
+  <section class="ecom-product-page">
+   <div class="row">
+    <div class="col-md-12 text-center">
+     <h1 class="h-section text-center large-grp barley_hide_outline" data-barley="shop_main_product_heading" data-barley-editor="simple" contenteditable="false">
+      SHOP
+     </h1>
+    </div>
+   </div>
+   <div class="product row">
+    <div class="col-sm-4 thumbs">
+     <ul id="thumbs">
+      {% if product.images %}
+                            {% for img in product.images %}
+      <li>
+       {{ product | object_img_tag(default_img_path='images/300x300_eprod.svg', index=loop.index0, ref=product.images[loop.index0].url, weighted=True) }}
+      </li>
+      {% endfor %}
+                        {% else %}
+      <li>
+       {{ product | object_img_tag(default_img_path='images/300x300_eprod.svg', index=0, weighted=True) }}
+      </li>
+      {% endif %}
+     </ul>
+    </div>
+    <div class="col-sm-8" itemscope itemtype="http://schema.org/Product">
+     <div class="row summary">
+      <div class="col-sm-12">
+       <h2 class="hsecondary-grp" itemprop="name">
+        {{ product.name }}
+       </h2>
+       {% set min = product.calc_min_ecom_price() %}
+                            {% set max = product.calc_max_ecom_price() %}
+       <h2 class="hsecondary-grp">
+        {% if max == min %}
+        <span class="price">
+         {{ min | currency }}
+        </span>
+        {% else %}
+        <span class="price">
+         {{ min | currency }} - {{ max | currency }}
+        </span>
+        {% endif %}
+       </h2>
+       <form action="/cart/add" method="POST" role="form" class="cform" id="product-form">
+        {% for variant in product | get_undeleted_variants %}
+                                {% if variant.name %}
+        <div class="form-group">
+         <div class="control-label">
+          {{ variant.name.lstrip() | capitalize }}
+         </div>
+         <select class="cselect" name="variant:{{ variant.name }}">
+          {% for value in variant.values %}
+          <option value="{{ value.value }}">
+           {{ value.value.lstrip() | capitalize }}
+          </option>
+          {% endfor %}
+         </select>
+        </div>
+        {% endif %}
+                                {% endfor %}
+    
+                                {% set quantity = [1,2,3,4,5,6,7,8,9,10] %}
+        <div class="form-group">
+         <div class="control-label">
+          Quantity
+         </div>
+         <select class="cselect" name="quantity">
+          {% for q in quantity %}
+          <option>
+           {{q}}
+          </option>
+          {% endfor %}
+         </select>
+        </div>
+        <input type="hidden" name="product_id" value="{{ product.id }}"/>
+        <input type="hidden" name="product_name" value="{{ product.name }}"/>
+        <div class="out-of-stock">
+        </div>
+        <button type="submit" class="btn btn-primary">
+         add to cart
+        </button>
+       </form>
+      </div>
+     </div>
+     <div class="row marketing">
+      {% if reviews_data %}
+      <div class="col-xs-6 rating text-center">
+       <div class="product-avg-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <span style="display: none;" itemprop="ratingValue">
+         {{ reviews_data.avg_rating | float }}
+        </span>
+        <span class="product-rating" data-score="{{ reviews_data.avg_rating | float}}">
+        </span>
+        <span itemprop="ratingCount">
+         {{ reviews_data.reviews | length }}
+        </span>
+        reviews
+       </div>
+       <a href="#write-a-review" class="btn btn-short btn-primary-hollow">
+        WRITE A REVIEW
+       </a>
+      </div>
+      {% endif %}
+      <div class="col-sm-12">
+       <h4 class="heading" data-barley="shop_product_social" data-barley-editor="simple">
+        Share this product
+       </h4>
+       <div>
+        <span class="fb-share-button" data-layout="button_count">
+        </span>
+        <span>
+         <a href="https://twitter.com/share" class="twitter-share-button" target="_blank" data-url="{{ product | product_ecom_url(http=True) }}" data-text="Check out {{product.name}}!">
+          Tweet
+         </a>
+         <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+         </script>
+        </span>
+        <span class="pinterest-share-button">
+         <a href="//www.pinterest.com/pin/create/button/?url={{ product | product_ecom_url(http=True) }}&{%if product.images%}media={{ product.images[0].url[2:]}}&{%endif%}description=Next%20stop%3A%20Pinterest" target="_blank" data-pin-do="buttonPin" data-pin-config="beside" data-pin-color="red">
+          <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_20.png"/>
+         </a>
+         <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js">
+         </script>
+        </span>
+       </div>
+      </div>
+     </div>
+     {% if product.description %}
+     <div class="row description">
+      <div class="col-sm-12">
+       <h4 class="heading" data-barley="shop_product_description" data-barley-editor="simple">
+        Product Description
+       </h4>
+       <p itemprop="description">
+        {{ product.description | safe}}
+       </p>
+      </div>
+     </div>
+     {% endif %}
+    </div>
+   </div>
+   {% if reviews_data %}
+   <div id="product-reviews-list-row" class="row">
+    <div class="col-xs-12">
+     <h2 class="product-reviews-list-heading">
+      {{ reviews_data.copy_settings.review_headline }}
+     </h2>
+    </div>
+    {% if reviews_data.reviews | length == 0 %}
+    <div class="product-review-empty col-xs-12">
+     {{ reviews_data.copy_settings.empty_review_text }}
+    </div>
+    {% endif %}
+    
+                {% for review in reviews_data.reviews %}
+    <div class="col-xs-12 product-review">
+     <div class="product-review-info">
+      <div class="product-review-meta">
+       {{ review.meta_string }}
+      </div>
+      <div class="product-review-rating product-rating" data-score="{{ review.rating }}">
+      </div>
+     </div>
+     <div class="product-review-content">
+      <h4 class="product-review-title">
+       {{ review.title }}
+      </h4>
+      <p class="product-review-body">
+       {{ review.body }}
+      </p>
+     </div>
+    </div>
+    {% endfor %}
+                {% if reviews_data.addl_reviews %}
+    <div class="col-xs-12">
+     <a id="reviews-show-more" href="#reviews-show-more">
+      Show More
+     </a>
+    </div>
+    {% endif %}
+   </div>
+   <div id="write-a-review" class="row">
+    <div class="col-xs-12">
+     <h3 class="write-review-heading">
+      {{ reviews_data.copy_settings.review_form_header }}
+     </h3>
+     {% set messages = get_flashed_messages(with_categories=True, category_filter=['review_success']) %}
+                    {% if messages %}
+                        {% set message = messages[0][1] %}
+     <div class="write-review-message">
+      {{ reviews_data.copy_settings.review_form_success }} {{ message|safe }}
+     </div>
+     {% elif reviews_data.write_disabled %}
+     <div class="write-review-message">
+      {% if reviews_data.disabled_reason == 'login' %}
+                                You must
+      <a href="/customer/login">
+       login
+      </a>
+      before writing a review.
+                            {% elif reviews_data.disabled_reason == 'duplicate' %}
+                                You have already submitted a review for this product.
+                            {% else %}
+                                Writing a review has been temporarily disabled.
+                            {% endif %}
+     </div>
+     {% else %}
+     <form action="/shop/product_review/{{ product.id }}" method="POST" class="form-horizontal">
+      <div class="write-review-rating-row">
+       <span class="write-review-rating-label">
+        How would you rate this product?
+       </span>
+       <span id="write-review-rating">
+       </span>
+      </div>
+      <div class="form-group">
+       <div class="col-xs-12">
+        <input type="text" class="form-control input-lg write-review-title" name="review_title" id="review-title" placeholder="{{ reviews_data.copy_settings.review_form_title }}">
+        </input>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="col-xs-12">
+        <textarea rows="5" class="form-control write-review-body" name="review_body" placeholder="{{ reviews_data.copy_settings.review_form_body }}">
+        </textarea>
+       </div>
+      </div>
+      <div class="form-group">
+       <div class="col-xs-12">
+        <button type="submit" class="btn btn-success">
+         Submit
+        </button>
+       </div>
+       {% set failure_messages = get_flashed_messages(category_filter=['review_failure']) %}
+        {% if failure_messages %}
+       <span class="help-block">
+        {{ failure_messages|first|safe }}
+       </span>
+       {% endif %}
+      </div>
+     </form>
+     {% endif %}
+    </div>
+   </div>
+   {% endif %}
+  </section>
+ </div>
+</div>
+{% endblock %}
+
+{% block page_javascript %}
+<script src="{{ 'js/jquery.pikachoose.min.js' | asset_url }}">
+</script>
+<script>
+ $(document).ready(
+  function (){
+    $("#thumbs").PikaChoose(
+      {
+        autoPlay: false,
+        showCaption: false,
+        animationSpeed: 400,
+        transition: [0],
+        bindFinished: load_image
+      }
+    );
+    if ($("#thumbs li").length <= 1) {
+      $("#thumbs").hide();
+    }
+
+    var load_image = function(img) {
+      var actualImage = new Image();
+      container = $(".pika-stage");
+    actualImage.src = img.attr('src');
+    actualImage.onload = function() {
+        width = this.width;
+        height = this.height;
+        var cutoff = 300;
+        img = container.find("img");
+        if (width < cutoff) {
+          container.css({'min-height': '300px'});
+          img.css({'width': width, 'height': height});
+          var width_centered = (container.width() - width) / 2;
+          var height_centered = (container.height() - height) / 2;
+          img.css({'position': 'relative', 'top': height_centered});
+        } else {
+          img.css({'width': '100%', 'height': '100%', 'top': '0'});
+          container.css({'min-height': '0px'});
+        }
+    }
+    };
+    $("#thumbs li").on("click", function() {
+      setTimeout(function() {
+        load_image($(this).find("img"));
+      }.bind(this), 400);
+    });
+    load_image($(".pika-stage").find("img"));
+
+  });
+</script>
+{{ shop.product_js() }}
+{% endblock %}

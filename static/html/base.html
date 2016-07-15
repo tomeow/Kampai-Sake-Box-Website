@@ -1,0 +1,992 @@
+<!-- If you're looking for the shared template that contains -->
+<!-- the header and footer, look in html/base.html -->
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>
+    Kampai Sake Box | Japanese Sake Subscription Box 
+  </title>
+  <!-- This code renders the standard meta tags, open graph tags, etc which can be configured via settings in the designer -->
+  <link rel="canonical" href="http://www.kampaisakebox.com/"/>
+<meta property="og:url" content="http://www.kampaisakebox.com/"/>
+    <meta name="keywords" content="subscription sake"/>
+<meta name="description" content="Introducing Kampai Sake Box, your sake subscription! A Japanese cultural experience delivered right to your door."/>
+    <meta property="og:title" content="Kampai Sake Box | Japanese Sake Subscription Box"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="//s3.amazonaws.com/cratejoy_vendor_images/f1479956fcdb4db6952b12514cb8b82b.png"/>
+  <!-- css.base() puts in the base CSS used to style the checkout page, my account page, receipt page, etc -->
+  
+<link href="//d3a1v57rabk2hm.cloudfront.net/978/css/messenger.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="//d3a1v57rabk2hm.cloudfront.net/978/css/messenger-theme-block.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="//d3a1v57rabk2hm.cloudfront.net/978/css/font-awesome.css" rel="stylesheet" type="text/css" media="all"/>
+
+
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+.cj-color-main {
+  background-color: #92C75D;
+}
+
+.cratejoy-loading-icon {
+  color: #92C75D;
+}
+
+input[type="radio"] + label.cj-btn {
+  border: 1px solid #92C75D;
+  color: #92C75D;
+}
+
+input[type="radio"]:checked + label.cj-btn, #skip_button.skipped {
+  background-color: #92C75D;
+  color: #FFFFFF;
+  border-color: #92C75D;
+}
+
+input[type="radio"]:checked + label.cj-btn.term h4,
+input[type="radio"]:checked + label.cj-btn.term h5 {
+  color: #FFFFFF;
+}
+
+#skip_button {
+  border: 1px solid #92C75D;
+  color: #92C75D;
+}
+
+#skip_button.skipped.hover {
+  color: #92C75D;
+  background-color: #FFFFFF;
+}
+
+
+
+</style>
+
+
+  <link href="//d3a1v57rabk2hm.cloudfront.net/978/css/store.css" rel="stylesheet" type="text/css" media="all"/>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=">
+
+    
+    <link href="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/css/bootstrap.css?ts=1467432250&host=www.kampaisakebox.com" rel="stylesheet" type="text/css" media="all"/>
+    <link href="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/css/style.css?ts=1467929661&host=www.kampaisakebox.com" rel="stylesheet" type="text/css" media="all"/>
+  <link rel="stylesheet" type="text/css" href="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/css/jquery.remodal.css?ts=1467432247&host=www.kampaisakebox.com">
+   <!-- Change your favicon location here if desired -->
+   <link href="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/images/favicon.ico?ts=1467432194&host=www.kampaisakebox.com" rel="icon" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+   <!-- DON'T PUT JAVASCRIPT INCLUDES IN THE HEADER! Put them in the footer! -->
+   
+  </link>
+  <!-- Facebook Pixel Code -->
+  <script>
+   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1552591865049452');
+fbq('track', "PageView");
+  </script>
+  <noscript>
+   <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1552591865049452&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  <!-- Google Analytics Tracking Code -->
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-80109622-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics Tracking Code -->
+ </head>
+ <body class="">
+  <div id="mob_menu" class="left_menu">
+   <div id="close" class="a_right close_btn">
+    <a href="#">
+     <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/mob_btn_close.png?ts=1467432243&host=www.kampaisakebox.com" alt="mob_btn_close"/>
+    </a>
+   </div>
+   <div class="mobile_menu">
+    <ul>
+     <li>
+      <a href="/how-it-works" data-barley="mob_menu1" data-barley-editor="link">
+       HOW IT WORKS
+      </a>
+     </li>
+     <li>
+      <a href="/our-box" data-barley="mob_menu2" data-barley-editor="link">
+       OUR BOXES
+      </a>
+     </li>
+     <li>
+      <a href="/gift" data-barley="mob_menu3" data-barley-editor="link">
+       GIFT
+      </a>
+     </li>
+     <li>
+      <a href="/shop" data-barley="mob_menu4" data-barley-editor="link">
+       SHOP
+      </a>
+     </li>
+     <li>
+      <a href="/subscribe" data-barley="mob_menu6" data-barley-editor="link">
+       SUBSCRIBE
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="scroll_nav">
+   <div class="nav_logo_section">
+    <div class="container">
+     <div class="row">
+      <div class="col-md-12">
+       <div class="logo_box">
+        <a href="/" data-barley="logo" data-barley-editor="logo">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/images/logo.png?ts=1467432162&host=www.kampaisakebox.com" alt="logo"/>
+        </a>
+       </div>
+       <div class="nav_box">
+        <ul>
+         <li>
+          <a href="/how-it-works" data-barley="main_menu1" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+           how it works
+          </a>
+         </li>
+         <li>
+          <a href="/our-boxes" data-barley="main_menu2" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+           OUR BOX
+          </a>
+         </li>
+         <li>
+          <a href="/gift" data-barley="main_menu3" data-barley-editor="link">
+           GIFT
+          </a>
+         </li>
+         <li>
+          <a href="/shop" data-barley="main_menu4" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+           Shop
+          </a>
+         </li>
+         <li class="select">
+          <a href="/subscribe" data-barley="main_menu6" data-barley-editor="link">
+           SUBSCRIBE
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div class="mobile_btn">
+        <a href="#" class="mob_btn">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/mob_btn.png?ts=1467432168&host=www.kampaisakebox.com" alt="mob_btn"/>
+        </a>
+       </div>
+       <div class="clr">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="top_section">
+   <div class="container">
+    <div class="row">
+     <div class="col-sm-6">
+      <div class="coupon_code_sec">
+       <p data-barley="coupon_code" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+        FREE SHIPPING ON ALL SUBSCRIPTION BOX
+       </p>
+      </div>
+      <!--<div class="countdown_box">
+                    Shipping - <div id="showAll" class="countdown_time"></div>
+                    </div>-->
+     </div>
+     <div class="col-sm-6">
+      <div class="login_cart_box">
+       
+       <a href="/customer/login" data-barley="nav_login" data-barley-editor="link" class="login">
+        ACCOUNT
+       </a>
+       
+       <a href="/checkout" class="cart" data-barley="nav_cart" data-barley-editor="link">
+        Cart (0)
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="nav_logo_section">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <div class="logo_box">
+       <a href="/" data-barley="logo" data-barley-editor="logo">
+        <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/images/logo.png?ts=1467432162&host=www.kampaisakebox.com" alt="logo"/>
+       </a>
+      </div>
+      <div class="nav_box">
+       <ul>
+        <li>
+         <a href="/how-it-works" data-barley="main_menu1" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+          how it works
+         </a>
+        </li>
+        <li>
+         <a href="/our-box" data-barley="main_menu2" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+          OUR BOX
+         </a>
+        </li>
+        <li>
+         <a href="/gift" data-barley="main_menu3" data-barley-editor="link">
+          GIFT
+         </a>
+        </li>
+        <li>
+         <a href="/shop" data-barley="main_menu4" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+          Shop
+         </a>
+        </li>
+        <li class="select">
+         <a href="/subscribe" data-barley="main_menu6" data-barley-editor="link">
+          SUBSCRIBE
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="mobile_btn">
+       <a href="#" class="mob_btn">
+        <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/mob_btn.png?ts=1467432168&host=www.kampaisakebox.com" alt="mob_btn"/>
+       </a>
+      </div>
+      <div class="clr">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  
+  <div class="banner_section">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <div class="banner_cnt home_banner_cnt barley_hide_outline" data-barley="banner_cnt" data-barley-editor="advanced" contenteditable="false">
+       <h2>
+        JOURNEY TO JAPAN
+       </h2>
+       <h1>
+        THROUGH SAKE
+       </h1>
+       <h5>
+        Bi-monthly Sake subscription. Experience Japan sip by sip.
+       </h5>
+       <div class="button_box">
+        <a href="/subscribe" data-barley="home_subscribe_link" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+         GET STARTED
+        </a>
+       </div>
+      </div>
+     </div>
+     <!--<div class="col-md-6">
+                <div class="banner_img" data-barley="banner_img" data-barley-editor="image">
+                <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/banner_img.png?ts=1467432183&host=www.kampaisakebox.com" alt="banner_img"/>
+                </div>
+                </div>-->
+    </div>
+   </div>
+  </div>
+  
+ 
+
+<div class="whatis_section">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <h1 data-barley="whatis_text1" data-barley-editor="text" contenteditable="false" class="barley_hide_outline">
+     WHAT IS KAMPAI SAKE BOX?
+    </h1>
+    <p data-barley="whatis_text2" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline whatis_sec_cnt">
+     Subscription Starting $35 •  FREE Shipping  •  Discover 3 Sake Tasters Bi-monthly
+    </p>
+   </div>
+  </div>
+  <div class="what_is_box">
+   <div class="row">
+    <div class="col-md-4">
+     <div class="whats_box barley_hide_outline" data-barley="whats_box1" data-barley-editor="advanced" contenteditable="false">
+      <div class="image">
+       <img src="//s3.amazonaws.com/cratejoy_vendor_images/kampaisakebox/parcel/images/howitworks1.jpg" alt="whats_img1">
+       </img>
+      </div>
+      <h2>
+       CHOOSE YOUR PLAN
+      </h2>
+      <p>
+       Select your payment plan to receive Kampai Sake Box every 2 months. We hand-pick 3 Sake tasters from Japan for you to discover!
+      </p>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="whats_box barley_hide_outline" data-barley="whats_box2" data-barley-editor="advanced" contenteditable="false">
+      <div class="image">
+       <img src="//s3.amazonaws.com/cratejoy_vendor_images/kampaisakebox/parcel/images/howitworks2-3.jpg" alt="whats_img2">
+       </img>
+      </div>
+      <h2>
+       EXPERIENCE JAPAN
+      </h2>
+      <p>
+       <span style="font-size: 17px; font-weight: 400; line-height: 25px;">
+        Every box comes with Sake with drinking advice from Sake brewers. Meet the Sake makers and learn the story behind each cup.
+       </span>
+      </p>
+      <p>
+       <span style="font-size: 17px; font-weight: 400; line-height: 25px;">
+        <br>
+       </span>
+      </p>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="whats_box barley_hide_outline" contenteditable="false" data-barley="whats_box3" data-barley-editor="advanced">
+      <div class="image">
+       <img alt="whats_img3" src="//s3.amazonaws.com/cratejoy_vendor_images/kampaisakebox/parcel/images/howitworks3.jpg">
+       </img>
+      </div>
+      <h2>
+       KAMPAI -
+       <i>
+        cheers
+       </i>
+       !!
+      </h2>
+      <p>
+       Gather, share and enjoy! Experience Japan in your own home – Kampai!
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <div class="button_box">
+      <a href="/how-it-works" data-barley="whats_button_box" data-barley-editor="link" class="red">
+       LEARN MORE
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="introduce_section">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div data-barley="introduce_cnt" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+     <h1>
+      WHAT'S IN OUR BOX?
+     </h1>
+     <p>
+      We carefully handpick finest Sake from Japan that match with each season. We focus on developing a personal relationship with each Sake maker and transmit their wisdom to you so you can enjoy Sake to its fullest.  You will receive the best selection of Sake, fun to explore, different each time and always full of discoveries!
+     </p>
+    </div>
+    <div class="button_box">
+     <a href="/our-box" data-barley="introduce_btn" data-barley-editor="link" class="red barley_hide_outline" contenteditable="false">
+      SEE OUR AUGUST BOX
+     </a>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="sake_any_occasion">
+ <div class="container">
+  <div class="col-sm-6">
+   <div class="any_occasion_content">
+    <h1 data-barley="any_occasion_head" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+     SAKE FITS ALL
+    </h1>
+    <p data-barley="any_occasion_text" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+     <b>
+      We offer a range of different gifts for any occasion.
+     </b>
+    </p>
+    <div class="button_box">
+     <a href="/gift" data-barley="any_occasion_gift_link" data-barley-editor="link" class="yellow barley_hide_outline" contenteditable="false">
+      GIFT NOW
+     </a>
+    </div>
+   </div>
+  </div>
+  <div class="col-sm-6">
+   <!--<div class="row">
+    <div class="any_occasion_iamge" data-barley data-barley-editor="simple">
+     <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/images/any-occasion-box.png?ts=1467432238&host=www.kampaisakebox.com" alt="image"/>
+    </div>
+   </div>-->
+   <div class="any_occasion_content barley_hide_outline" data-barley="any_image" data-barley-editor="image" contenteditable="false">
+    <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/images/sakefitsall2.jpg?ts=1467432222&host=www.kampaisakebox.com" alt="image"/>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="our_shop">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <div class="our_shop-content">
+     <h1 data-barley="our_shop_head" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      SHOP FROM OUR STORE
+     </h1>
+     <h2 data-barley="our_shop_text" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+      You can never go wrong with our hand-picked Sake.
+     </h2>
+     <div class="button_box">
+      <a href="/shop" data-barley="our_shop_buy_now_link" data-barley-editor="link" class="red barley_hide_outline" contenteditable="false">
+       SHOP NOW
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="newsletter_community">
+ <div class="container">
+  <div class="row">
+   <div class="col-lg-12">
+    <div class="newsletter_section">
+     <div data-barley="newsletter_cnt" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+      <h1>
+       JOIN OUR NEWSLETTER
+      </h1>
+      <p>
+       For the latest Sake news, offers and more!
+      </p>
+     </div>
+     <div class="newsletter_form">
+      <div id="mc_embed_signup">
+       <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+         <table width="100%">
+          <tr>
+           <td>
+            <div class="mc-field-group">
+             <input type="email" value name="EMAIL" class="required email provide_email" placeholder="Your email" id="mce-EMAIL">
+             </input>
+            </div>
+            <div id="mce-responses" class="clear">
+             <div class="response mce-error-response" id="mce-error-response" style="display:none">
+              Could not connect to the registration server. Please try again later.
+             </div>
+             <div class="response mce-success-response" id="mce-success-response" style="display:none">
+              Almost finished... We need to confirm your email address. To complete the subscription process, please click the link in the email we just sent you.
+             </div>
+            </div>
+           </td>
+           <td width="155">
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+             <input type="text" name="b_20a00a4d714ad1748f2f91858_70503e33f0" tabindex="-1" value/>
+            </div>
+            <div class="clear">
+             <input type="submit" value="SUBMIT" name="subscribe" id="mc-embedded-subscribe" class="button"/>
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <div id="mce-responses" class="clear">
+             <div class="response" id="mce-error-response" style="display:none">
+             </div>
+             <div class="response" id="mce-success-response" style="display:none">
+             </div>
+            </div>
+           </td>
+          </tr>
+         </table>
+        </div>
+       </form>
+      </div>
+      <!--<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>-->
+     </div>
+    </div>
+    <div class="community_section">
+     <div data-barley="community_cnt" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+      <h1>
+       #KAMPAISAKEBOX
+      </h1>
+      <p>
+       <br>
+      </p>
+     </div>
+     <div class="instagram_box">
+      <div id="instafeed">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+  <div class="footer_section">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-5 ">
+      <div class="footer_box barley_hide_outline" data-barley="footer_box1" data-barley-editor="advanced" contenteditable="false">
+       <div class="footer_logo">
+        <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/footer_logo.png?ts=1464841460&host=kampaisakebox.cratejoy.com">
+        </img>
+       </div>
+       <p>
+        We take you on a cultural journey to Japan and introduce you to exquisite Sake.
+       </p>
+       <p class="readmore">
+        <a href="/about-us">
+         Read more >>
+        </a>
+       </p>
+      </div>
+     </div>
+     <div class="col-md-2">
+      <div class="footer_box barley_hide_outline" data-barley="footer_box2" data-barley-editor="advanced" contenteditable="false">
+       <h2>
+        Quick Links
+       </h2>
+       <ul>
+        <li>
+         <a href="/about-us">
+          About US
+         </a>
+        </li>
+        <li>
+         <a href="/contact">
+          CONTACT US
+         </a>
+        </li>
+        <li>
+         <a href="/our-box">
+          Our Box
+         </a>
+        </li>
+        <li>
+         <a href="/gift">
+          Gift
+         </a>
+        </li>
+        <li>
+         <a href="/shop">
+          Shop
+         </a>
+        </li>
+        <li>
+         <a href="https://kampaiblog.wordpress.com/" target="_blank">
+          Blog
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="col-md-2">
+      <div class="footer_box" data-barley="footer_box3" data-barley-editor="advanced">
+       <h2>
+        Information
+       </h2>
+       <ul>
+        <li>
+         <a href="/faq">
+          FAQS
+         </a>
+        </li>
+        <li>
+         <a href="/terms_conditions">
+          terms & conditions
+         </a>
+        </li>
+        <li>
+         <a href="/privacy-policy">
+          privacy policy
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="col-md-3">
+      <div class="footer_box footer_last_box barley_hide_outline" data-barley="footer_box4" data-barley-editor="advanced" contenteditable="false">
+       <h2>
+        Contact Us
+       </h2>
+       <p>
+        <a href="mailto:info@kampaisakebox.com?edit=1&edit_theme_id=313850759?edit=1&edit_theme_id=313850759">
+         Info@kampaisakebox.com
+        </a>
+       </p>
+       <h2>
+        Follow us on
+       </h2>
+       <div class="social_links">
+        <a href="https://www.facebook.com/kampaisakebox/" contenteditable="false" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/fb.png?ts=1467432180&host=www.kampaisakebox.com" alt="fb"/>
+        </a>
+        <a href="https://www.instagram.com/kampaisakebox/" contenteditable="false" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/ins.png?ts=1467432171&host=www.kampaisakebox.com" alt="ins"/>
+        </a>
+        <!--<a href="#" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/pin.png?ts=1467432181&host=www.kampaisakebox.com" alt="pin"/>
+        </a>-->
+        <a href="https://twitter.com/kampaisakebox" contenteditable="false" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/tw.png?ts=1467432235&host=www.kampaisakebox.com" alt="tw"/>
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer_bottom">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <div data-barley="copyright" data-barley-editor="text" contenteditable="false" class="barley_hide_outline">
+       Copyright 2016 Kampai Sake Box
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!--age popup-->
+  <div class="remodal started_popup" data-remodal-id="age">
+   <div class="popup_icon">
+    <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/popup_icon.png?ts=1467432233&host=www.kampaisakebox.com" alt="popup_icon"/>
+   </div>
+   <h3>
+    Must be of legal drinking age.
+   </h3>
+   <h2>
+    Are you over
+   </h2>
+   <h1>
+    21?
+   </h1>
+   <h3>
+    We currently ONLY ship to California, USA.
+   </h3>
+   <div class="yes_no_btn">
+    <a data-age="21" class="age_btn">
+     YES
+    </a>
+    <a data-age="20" class="no age_btn">
+     NO
+    </a>
+   </div>
+  </div>
+  <div class="remodal started_popup" data-remodal-id="sorry">
+   <div class="popup_icon">
+    <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/popup_icon.png?ts=1467432233&host=www.kampaisakebox.com" alt="popup_icon"/>
+   </div>
+   <h1>
+    SORRY!
+   </h1>
+   <h4>
+    You must be 21 and over.
+   </h4>
+   <h3 class="no_tranform">
+    We are sorry but you must be of legal drinking age to access our website.
+   </h3>
+  </div>
+  <!--age popup-->
+  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery-1.11.3.min.js?ts=1467432148&host=www.kampaisakebox.com">
+  </script>
+  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/bootstrap.min.js?ts=1467432143&host=www.kampaisakebox.com">
+  </script>
+  <!-- ga.base() sets up google analytics. -->
+  <!-- Configure the google analytics settings in the designer under Settings -->
+  
+  
+    <!-- Google analytics information goes here -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        
+          ga('create', 'UA-80109622-1', {
+                'cookieDomain': 'auto',
+                'allowLinker': true
+            });
+
+            ga('require', 'linker');
+            ga('linker:autoLink', ['kampaisakebox.cratejoy.com', 'www.kampaisakebox.com']);
+        
+
+    
+      ga('require', 'ecommerce');
+    
+
+        ga('send', 'pageview');
+
+    </script>
+  
+
+  
+
+    
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//kampaisakebox.cratejoy.com/stat_pixel/de1f46aa-0e50-4fde-bc93-3d230d1ed546" async></script>
+  
+
+
+
+
+
+
+<script type="text/javascript">
+  window.cdnBase = "//d3a1v57rabk2hm.cloudfront.net/978/";
+  window.vendorBase = "my.cratejoy.com";
+  window.stripe_pkey = "pk_live_Q2YR5kU5BCsrO3tTguyGsf56";
+  window.cj = window.cj || {};
+  window.cj.mailgun = {
+    publicAPIKey: 'pubkey-5fovd-yz3stduvjj7rk-llvvg-ss5h17'
+  };
+</script>
+
+
+  <script type="text/javascript" src="//d3a1v57rabk2hm.cloudfront.net/978/js/bower_components/requirejs/require.js"></script>
+
+
+
+
+<script type="text/javascript">
+require.config({
+  baseUrl: window.cdnBase + "js",
+  waitSeconds: 200
+});
+</script>
+
+
+<script type="text/javascript">
+
+window.render_mode = {
+  edit: false,
+  preview: false,
+  test: false,
+  theme_id: 313850759,
+  hide_banner: false
+};
+
+
+
+
+  window.test_mode = false;
+  window.warn_notifs = {};
+
+</script>
+
+<script type="text/javascript">
+
+  window.products = true;
+
+
+window.currency = '$';
+window.no_address_manager = false;
+
+
+
+
+</script>
+
+
+  
+  <script type="text/javascript">
+  
+    window.coupon_code = "";
+  
+
+  window.gift_card_discount = 0;
+  </script>
+
+  
+    
+            <script type='text/javascript' src="//d3a1v57rabk2hm.cloudfront.net/978/js/store/mains/standard_main.js"></script>
+            
+  
+
+
+
+
+
+
+
+  
+  <script src="https://cratejoy.com/sift/pixel/de1f46aa-0e50-4fde-bc93-3d230d1ed546"></script>
+  <script async="async" src="https://cratejoy.com/lead_dyno/visit_store/274848712"></script>
+  
+
+
+<script type="text/javascript">
+  if(jQuery('.dropdown-switch')) {
+    jQuery('.dropdown-switch').click(function(e){
+      e.preventDefault();
+      jQuery(this).parent().toggleClass('open');
+    });
+  }
+</script>
+
+
+  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.plugin.js?ts=1467432146&host=www.kampaisakebox.com" type="text/javascript">
+  </script>
+  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.countdown.min.js?ts=1467432143&host=www.kampaisakebox.com" type="text/javascript">
+  </script>
+  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.remodal.js?ts=1467432145&host=www.kampaisakebox.com" type="text/javascript">
+  </script>
+  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/instafeed.js?ts=1467432146&host=www.kampaisakebox.com" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   $(".mob_btn,#close").click(function(e){
+            e.preventDefault();
+            $("#mob_menu").toggleClass("show_menu");
+        });
+        $('#showAll').countdown({until: new Date("2016-02-01"), format: 'DHMS'});
+        if(window.localStorage.age_true){
+            window.location.hash = "";
+            
+        }
+        
+        setTimeout(function(){
+            window.localStorage.age=20; 
+        }, 1800000)
+        if(window.localStorage.age==20){
+            window.location.hash = "age";
+        }
+        $('.age_btn').click(function(e) {
+            window.localStorage.age = $(this).data().age;
+            if(window.localStorage.age==20){
+                window.location.hash = "sorry";
+        setTimeout(function(){
+                window.location = "https://www.google.com";
+        }, 3000)
+            }else{
+                window.location = "";
+                window.localStorage.age_true = true;
+                
+            }
+        });
+    $(window).unbind("scroll").scroll(function(){
+      var top = $(window).scrollTop();
+      if(top>110){
+       $(".scroll_nav").addClass("nav_fixed_top");
+      }else{
+       $(".scroll_nav").removeClass("nav_fixed_top");
+      }
+    });
+    var feed = new Instafeed({
+       get:"user",
+       userId:3231841555,
+       limit:4,
+       sortBy:"most-recent",
+       accessToken:"3231841555.97420b8.6fb270b22d5848a786e8c53154c0bb2f",
+       clientId:"97420b819f6d4cc59f2ff7e4de6888a8",
+       resolution:"low_resolution",
+       
+    });
+    feed.run();
+  </script>
+  <!-- PUT JAVASCRIPT INCLUDES AND SNIPPETS HERE -->
+  
+<script>
+ function valMail(a) {
+       var em=a;
+       //em=document.getElementById(a).value;
+       var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+       if(reg.test(em) == false) {
+        return false;
+       }else{
+        return true;
+       }
+    }
+     $("#mc-embedded-subscribe").click(function(e){
+       if(valMail($('.provide_email').val())){
+          $.ajax({
+             type: 'GET',
+             url: "https:////kampaisakebox.us13.list-manage.com/subscribe/post-json?u=20a00a4d714ad1748f2f91858&amp;id=70503e33f0&c=?",
+             data: $('#mc-embedded-subscribe-form').serialize(),
+             cache       : false,
+             dataType    : 'json',
+             contentType: "application/json; charset=utf-8",
+             error       : function(err) { 
+             $(".mce-success-response").show();
+             $(".mce-error-response").hide();
+             },
+             success     : function(data) { 
+             //$(".mce-error-response").hide();
+             //$("#mc-embedded-subscribe-form-signup .required.email").val("");
+             //$(".mce-success-response").show();
+             window.location ="/thankyou-mail";
+             
+             }
+          });
+  
+       }else{
+        alert("Enter a valid email address.");  
+       }
+      
+        return false;
+     });
+</script>
+
+
+    
+ </body>
+</html>

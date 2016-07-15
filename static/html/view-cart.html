@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}Cart{% endblock %}
+
+{% block page_css %}
+  {{ 'css/anims.css' | asset_url | stylesheet_tag }}
+{% endblock %}
+
+{% macro cycle_abbr(product) -%}
+  {% if product.billing.rebill_months == 1 -%}
+    mo
+  {% elif product.billing.rebill_weeks == 1 -%}
+    wk
+  {% else -%}
+    cycle
+  {% endif %}
+{% endmacro %}
+
+{% set cart = active_cart() %}
+
+{% block page_content %}
+<section class="row cart-content">
+  <div class="pholder">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="row">
+        <div class="col-xs-12 pholder-header">
+          <h1 class="heading">YOUR CART</h1>
+        </div>
+      </div>
+
+      <div class="row cart-thead cart-table hidden-xs">
+        <div class="col-sm-6 cart-td">
+          <h3 class="heading">product</h3>
+        </div>
+        <div class="col-sm-2 cart-td">
+          <h3 class="heading">price</h3>
+        </div>
+        <div class="col-sm-2 cart-td">
+          <h3 class="heading">quantity</h3>
+        </div>
+        <div class="col-sm-2 cart-td">
+          <h3 class="heading">total</h3>
+        </div>
+      </div>
+
+      {% if cart.products | length > 0 %}
+        {% for cart_product in cart.products %}
+
+        {% set instance = cart_product.instance %}
+        {% set product = instance.product %}
+        <div class="row cart-table" id="cart-product-{{ cart_product.id }}">
+          <div class="col-sm-6 cart-td">
+            <div class="product-label">
+              <figure class="thumb product-image-thumb">
+                <a href="#">
+                  {{ product | object_img_tag(height=190, width=285, title='N/A', fgcolor='#aaaaaa', bgcolor='#654321') }}
+                </a>
+              </figure>
+              <div class="meta product-info-meta">
+                <h3 class="heading"><a href="#">{{ product.name }}</a></h3>
+                {% if cart_product.subscription_type_term %}
+                  {% set is_gifted = cart.product_is_gifted(cart_product) %}
+
+                  {% set stt = cart_product.subscription_type_term %}
+                    <p>{{ stt.name|title }} Plan @ {% if is_gifted %}Gifted{% else %}{{ (cart_product.price / stt.num_cycles) | currency }}{% endif %}/{{ cycle_abbr(instance.product) }}</p>
+                  {% if stt.subscription_type.autorenew and not is_gifted %}
+                    <p>{{ stt.num_cycles }} deliver{% if stt.num_cycles==1 %}y{% else %}ies{% endif %}, auto-renewing.</p>
+                  {% else %}
+                    <p>{{ stt.num_cycles }} deliver{% if stt.num_cycles==1 %}y{% else %}ies{% endif %}, does not auto-renew.</p>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 cart-td">
+            <div class="product-label">
+              <span class="thumb visible-xs">Price</span>
+              <div class="meta price">
+                {% if product.single_purchasable %}
+                  {% set price = instance.price %}
+                {% else %}
+                  {% set stt = cart_product.subscription_type_term %}
+                  {% set st = stt.subscription_type %}
+                  {% set price = instance.calc_price(st, stt) %}
+                {% endif %}
+                <p>{{ price | currency }} USD</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 cart-td">
+            <div class="product-label">
+              <span class="thumb visible-xs">Quantity</span>
+              <div class="meta">
+                {% if product.single_purchasable %}
+                  <select name="product-qty-{{ cart_product.id }}" class="product-qty-select form-control" data-cart-product="{{ cart_product.id}}">
+                    {% for i in range(10) %}
+                    <option value="{{ i + 1 }}" {%if i + 1 == cart_product.quantity%}selected{%endif%}>
+                      {{ i + 1 }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                {% else %}
+                  {{ cart_product.quantity }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 cart-td">
+            <div class="product-label">
+              <span class="thumb visible-xs">Total</span>
+              <div class="meta price">
+                <p class="cart-product-price">{{ cart_product.price | currency }} USD</p>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" data-cart-product="{{ cart_product.id }}" class="product-rem-btn close"><i class="icon icon-remove"></i><span class="sr-only">Close</span></button>
+        </div>
+        {% endfor %}
+
+      <div class="row flat-well">
+        <div class="col-sm-10 col-sm-offset-1 text-center">
+          <div class="cart-subtotal">
+            <h2 class="title">Subtotal</h2>
+            <h1 class="price" id="cart-subtotal-price">
+              {{ cart.product_total | currency }} USD
+            </h1>
+            <p>Subtotal excludes Shipping, Tax & Discounts</p>
+          </div>
+          <a href="/checkout" class="btn btn-primary fixsize">CHECKOUT</a>
+        </div>
+      </div>
+      {% else %}
+      <div class="row cart-table" role="alert">
+        <div class="col-sm-12 cart-td">
+          <div class="product-label">
+            Your cart is empty!
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block page_javascript %}
+<script>
+  window.cj = window.cj || {};
+  window.cj.cart_id = {{ cart.id }};
+</script>
+<script src="{{ 'js/cart.js' | asset_url }}"></script>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}{{ flow_step.page_title | default("Survey", True) }}{% endblock %}
+
+{% block page_content %}
+
+{% from "subscribe_flow/progress_bar.html" import progress_bar %}
+{{ progress_bar(flow_data, flow_step) }}
+
+{% set error = flow.get_error() %}
+<div class="row survey">
+  <div class="col-md-12">
+
+    <div class="row head">
+      <div class="col-sm-12 text-center">
+        <h1>{{ flow_step.page_title | default("Survey", True) }}</h1>
+        <p class="description main">{{ flow_step.page_description | default("", True) }}</p>
+      </div>
+    </div>
+
+    {% if error %}
+    <p class="survey-error main">{{ error }}</p>
+    {% endif %}
+
+    {{ survey(flow_step) }}
+  </div>
+</div>
+{% endblock %}
+
+
+{% macro survey(survey) %}
+<div class="col-sm-8 col-sm-offset-2 survey" name="{{ survey.slug }}">
+  <form role="form" method="POST" action="/subscribe_flow/survey" class="form-group">
+    {% for field in survey.fields %}
+      {% if field.type == 'text' %}
+        {{ text_field(survey, field) }}
+      {% elif field.type == 'paragraph' %}
+        {{ paragraph_field(survey, field) }}
+      {% elif field.type == 'multiple_choice' %}
+        {{ multi_choice_field(survey, field) }}
+      {% elif field.type == 'checkboxes' %}
+        {{ checkboxes_field(survey, field) }}
+      {% elif field.type == 'date' %}
+        {{ date_field(survey, field) }}
+      {% endif %}
+    {% endfor %}
+    <input type="hidden" name="next_url" value="{{ survey | subscribe_flow_url }}"/>
+    <input type="hidden" name="survey_id" value="{{ survey.id }}"/>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <button type="submit" class="btn btn-large btn-primary">continue</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endmacro %}
+
+
+{% macro text_field(survey, field) %}
+{% set error = flow.get_error(field) %}
+<div class="row survey-field survey-field-{{ field.type }} form-group" name="{{ field.slug }}">
+  <div class="col-sm-12">
+    <h2 class="question">{{ field.name }}</h2>
+    {% if field.required %}
+    <h2 class="required"></h2>
+    {% endif %}
+  </div>
+  {% if field.description %}
+  <p class="col-sm-12 description">{{ field.description }}</p>
+  {% endif %}
+  <div class="col-sm-12">
+    <input type="text" name="{{ field.id }}" class="form-control {% if error %} survey-error-focused {% endif %}" value="{{ flow.get_value(field) }}"/>
+    {% if error %}
+    <span class="survey-error">{{ error }}</span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro paragraph_field(survey, field) %}
+{% set error = flow.get_error(field) %}
+<div class="row survey-field survey-field-{{ field.type }} form-group" name="{{ field.slug }}">
+  <div class="col-sm-12">
+    <h2 class="question">{{ field.name }}</h2>
+    {% if field.required %}
+    <h2 class="required"></h2>
+    {% endif %}
+  </div>
+  {% if field.description %}
+  <p class="col-sm-12 description">{{ field.description }}</p>
+  {% endif %}
+  <div class="col-sm-12">
+    <textarea name="{{ field.id }}" class="form-control {% if error %} survey-error-focused {% endif %}">{{ flow.get_value(field) }}</textarea>
+    {% if error %}
+    <span class="survey-error">{{ error }}</span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro multi_choice_field(survey, field, error) %}
+{% set error = flow.get_error(field) %}
+<div class="row survey-field survey-field-{{ field.type }} form-group" name="{{ field.slug }}">
+  <div class="col-sm-12">
+    <h2 class="question">{{ field.name }}</h2>
+    {% if field.required %}
+    <h2 class="required"></h2>
+    {% endif %}
+  </div>
+  {% if field.description %}
+  <p class="col-sm-12 description">{{ field.description }}</p>
+  {% endif %}
+  <div class="col-sm-12">
+    <div class="select-container {% if error %} survey-error-focused {% endif %}">
+      {% for option in field.options %}
+      <div class="radio option">
+        <label for="{{ option.id }}" name="{{ option.slug }}">
+          <input type="radio" id="{{ option.id }}" name="{{ field.id }}" value="{{ option.value }}" {{ flow.get_check(field, option.value) }}/>
+          <span class="option">{{ option.value }}</span>
+        </label>
+      </div>
+      {% endfor %}
+    </div>
+    {% if error %}
+    <span class="survey-error">{{ error }}</span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+
+
+{% macro checkboxes_field(survey, field, error) %}
+{% set error = flow.get_error(field) %}
+<div class="row survey-field survey-field-{{ field.type }} form-group" name="{{ field.slug }}">
+  <div class="col-sm-12">
+    <h2 class="question">{{ field.name }}</h2>
+    {% if field.required %}
+    <h2 class="required"></h2>
+    {% endif %}
+  </div>
+  {% if field.description %}
+  <p class="col-sm-12 description">{{ field.description }}</p>
+  {% endif %}
+  <div class="col-sm-12">
+    <div class="select-container {% if error %} survey-error-focused {% endif %}">
+      {% for option in field.options %}
+      <div class="checkbox option">
+        <label for="{{ option.id }}" name="{{ option.slug }}">
+          <input type="checkbox" id="{{ option.id }}" name="{{ field.id }}" value="{{ option.value }}" {{ flow.get_check(field, option.value) }}/>
+          <span class="option">{{ option.value }}</span>
+        </label>
+      </div>
+      {% endfor %}
+    </div>
+    {% if error %}
+    <span class="survey-error">{{ error }}</span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro date_field(survey, field) %}
+{% set error = flow.get_error(field) %}
+<div class="row survey-field survey-field-{{ field.type }} form-group" name="{{ field.slug }}">
+  <div class="col-sm-12">
+    <h2 class="question">{{ field.name }}</h2>
+    {% if field.required %}
+    <h2 class="required"></h2>
+    {% endif %}
+  </div>
+  {% if field.description %}
+  <p class="col-sm-12 description">{{ field.description }}</p>
+  {% endif %}
+  <div class="col-sm-12">
+    <input type="date" name="{{ field.id }}" class="form-control {% if error %} survey-error-focused {% endif %}" value="{{ flow.get_value(field) }}" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="MM/DD/YYYY" />
+    {% if error %}
+    <span class="survey-error">{{ error }}</span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}

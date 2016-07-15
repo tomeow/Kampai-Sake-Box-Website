@@ -1,0 +1,41 @@
+{% macro progress_bar(flow_data, flow_step) %}
+
+<div class="row">
+  <div class="progressbar col-xs-12">
+    <ol class="breadcrumb">
+      {% set ns = (flow_data.steps | length) %}
+      {% set left_percent_increment = 100 // ns %}
+      {% set current_left_percent = 0 %}
+      <li class="step active">
+        <span class="title">
+          Subscribe
+        </span>
+      </li>
+      <li class="step first active">
+        <span class="title">
+          Products
+        </span>
+      </li>
+      {% for step in flow_data.steps %}
+      {% set current_left_percent = current_left_percent + left_percent_increment %}
+      <li class="step {% if step.index <= flow_step.index %}active{% endif %}" style="left: {{ current_left_percent }}%;">
+        {% if step.type == 'variant' %}
+        <span class="title">
+          {{ step.name }}
+        </span>
+        {% elif step.type == 'terms' %}
+        <span class="title">
+          Terms
+        </span>
+        {% elif step.type == 'survey' %}
+        <span class="title">
+          Survey
+        </span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
+
+{% endmacro %}

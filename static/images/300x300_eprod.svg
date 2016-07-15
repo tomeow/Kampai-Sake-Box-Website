@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='300px' height='300px'>
+    <rect width='300px' height='300px' fill='#e0e0e0'/>
+    <text x='50%' y='145.5px' fill='#909090' text-anchor='middle' font-weight='bold' font-size='16px' font-family='Helvetica'>300 x 300</text>
+    <text x='50%' y='166.5px' fill='#909090' text-anchor='middle' font-weight='bold' font-size='16px' font-family='Helvetica'>Term Image</text>
+</svg>

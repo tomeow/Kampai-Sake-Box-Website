@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{{ flow_step.page_title | default("Choose an Option", True) }}{% endblock %}
+
+{% block page_content %}
+
+{% from "subscribe_flow/progress_bar.html" import progress_bar %}
+{{ progress_bar(flow_data, flow_step) }}
+
+<section class="row subscribe">
+  <div class="col-md-12">
+    <div class="row head">
+      <div class="col-sm-12 text-center">
+        <h1 class="heading h-section text-center lrg-heading-grp">{{ flow_step.page_title | default("Choose an Option", True) }}</h1>
+        <p>{{ flow_step.page_description | default("", True) }}</p>
+      </div>
+    </div>
+    <div class="row content variants"> <!-- Begin variant list -->
+      {#
+        Loop over each of the variant value objects attached the current variant
+      #}
+
+      {% for value in flow_step.values %}
+
+      <div class="item variant"> <!-- Begin variant -->
+        <a href="{{ value | subscribe_flow_url }}">
+          <div class="image-container" >
+            {#
+              Creates an image tag if one is uploaded to the variant value model. Otherwise it creates an image tag from the default image (images/variant_placeholder.jpg)
+            #}
+            {{ value | object_img_tag(default_img_path="images/variant_placeholder.jpg", css_class="") }}
+          </div>
+        </a>
+
+        <div class="information">
+          <!-- Variant value -->
+          <div class="name-container line-limited">
+            <div class="name">
+              {{ value.value }}
+            </div>
+          </div>
+
+          {#
+            Creates a link which advances the subscribe flow to the next step, choosing the current variant value
+          #}
+          <a type="button" href="{{ value | subscribe_flow_url }}" class="btn btn-large btn-primary"  data-barley="variant-{{value.id}}-choose-btn" data-barley-editor="link">choose</a>
+
+          {% if value.description %}
+          <div class="description-container line-limited">
+            <div class="description">
+              {#
+                Renders the variant value description if one exists, otherwise uses the default string
+              #}
+              {{ value.description }}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+      </div> <!-- End variant -->
+
+      {% endfor %}
+    </div> <!-- End variant list -->
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+      <div class="progressbar col-xs-12">
+        {% if stage == "product" %}
+          <ol class="breadcrumb">
+            <li class="step active">
+              <span class="title">
+                Subscribe
+              </span>
+            </li>
+            <li class="step active">
+              <span class="title">
+                Products
+              </span>
+            </li>
+            <li class="step">
+              <span class="title">
+                Options
+              </span>
+            </li>
+          </ol>
+        {% else %}
+          <ol class="breadcrumb">
+            {% set ns = (steps | length) %}
+            {% set left_percent_increment = 100 // ns %}
+            {% set current_left_percent = 0 %}
+            <li class="step active">
+              <span class="title">
+                Subscribe
+              </span>
+            </li>
+            <li class="step first active">
+              <span class="title">
+                Products
+              </span>
+            </li>
+            {% for key, val in steps %}
+              {% set current_left_percent = current_left_percent + left_percent_increment %}
+              <li class="step {% if loop.index <= cur_step %}active{% endif %}" style="left: {{ current_left_percent }}%;">
+                {% if key == 'variant' %}
+                  <span class="title">
+                    {{ val.name }}
+                  </span>
+                {% else %}
+                  <span class="title">
+                    {{ key.title() }}
+                  </span>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ol>
+        {% endif %}
+      </div>
+    </div>
+</div>
+
+<div class="content_section">
+    <div class="container">
+        <div class="row subscribe"> <!-- Begin subscribe content -->
+            <!-- If the user has not chosen a product yet (and you have multiple products)
+            we will first ask them to select a product.
+            This HTML is rendered by subscribe_flow/products.html.
+            -->
+            <div class="col-xs-12">
+              <div class="row callout">
+                <div class="col-xs-12">
+                  <div class="alert alert-warning" data-barley="subscribe-alert" data-barley-editor="simple">
+                    Subscribe by the 15th to get this month's box!
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-12">
+            {% if stage == "product" %}
+        
+              {% include "subscribe_flow/products.html" %}
+        
+            <!-- If the user has not chosen a product but that product has not had all of it's
+              variants chosen yet we will ask them to choose the next unspecified variant.
+              This HTML is rendered by subscribe_flow/variants.html.
+            -->
+            {% elif stage == "variants" %}
+        
+              {% include "subscribe_flow/variants.html" %}
+        
+            <!-- If the user has chosen the product and variants, they will be asked to choose a
+              prepayment term if applicable.
+              This HTML is rendered by subscribe_flow/terms.html.
+            -->
+            {% elif stage == "terms" %}
+        
+              {% include "subscribe_flow/terms.html" %}
+        
+            {% endif %}
+          </div>
+        </div> <!-- End subscribe content -->
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{#
+  This fragment renders the HTML for choosing the prepay term for the currently chosen product instance (product + fully specified variants)
+#}
+
+<div class="row content terms"> <!-- Begin term list -->
+  {#
+    Loop over each of the term price objects attached the chosen product instance and display the enabled term prices
+  #}
+  {% for term_price in instance.term_prices %}
+    {% if term_price.term.enabled %}
+      {% set term = term_price.term %}
+
+      <div class="item term"> <!-- Begin term -->
+        {#
+          Uses a placeholder image for every term. This can be changed to use a different image for each term using the
+          visual designer.
+        #}
+        <div class="image-container">
+          {{ term | object_img_tag(default_img_path="images/285x190_term.svg", css_class="") }}
+        </div>
+
+        <div class="information">
+          <!-- Term Name -->
+          <div class="name-container line-limited">
+            <div>{{ term.name }}</div>
+          </div>
+
+          <h2 class="price">
+            {#
+              Display the term price formatted properly for the current store currency
+            #}
+            <p>
+              {{ term_price.price | currency }}
+            </p>
+          </h2>
+
+          {#
+            Creates a link which advances the subscribe flow to the next step, choosing the
+            current subscription term as well any previously specified product and variants
+          #}
+          <a type="button" href="{{ product | product_subscribe_url(chosen_values, term, gift=gift) }}" data-barley="{% if gift %}gift.{% endif %}btn_text.{{ term.id }}" data-barley-editor="link" class="btn btn-large btn-primary">choose</a>
+          <div class="description-container line-limited">
+            <div class="description">
+              {#
+                Renders the term description if one exists, otherwise uses the default string
+              #}
+              {{ term.description | default("", True) }}
+            </div>
+          </div>
+
+
+        </div>
+      </div> <!-- End term -->
+
+    {% endif %}
+  {% endfor %}
+</div> <!-- End term list -->
