@@ -1206,7 +1206,7 @@ a:hover{
   margin-left:5px;  
 }
 .top_section .login_cart_box a.login{
-  background-image:url("{{ 'images/user-icon.png' | asset_url }}");
+  background-image:url("../images/user-icon.png");
   background-repeat:no-repeat;
   background-position:5px center;
   padding-left:25px;
@@ -1285,7 +1285,7 @@ a:hover{
   width:45px;
 }
 .banner_section{
-  background-image:url("{{ 'images/home-banner.png' | asset_url }}");
+  background-image:url("../images/home-banner.png");
   background-repeat:no-repeat;
   background-size:cover;
   background-position:bottom center;
@@ -1294,34 +1294,34 @@ a:hover{
 */}
 .inner_banner{
   height:350px;
-  background-image:url("{{ 'images/subscribe_banner3.jpg' | asset_url }}");
+  background-image:url("../images/subscribe_banner3.jpg");
 }
 .inner_banner.about_banner{
-  background-image:url("{{ 'images/about_banner1.jpg' | asset_url }}");
+  background-image:url("../images/about_banner1.jpg");
   text-align:center;
 }
 .inner_banner.our_box_banner{
-  background-image:url("{{ 'images/our_box_banner2.jpg' | asset_url }}");
+  background-image:url("../images/our_box_banner2.jpg");
   padding-top:90px;
   text-align:center;  
 }
 .inner_banner.subscribe_banner{
-  background-image:url("{{ 'images/gift_banner1.jpg?v1' | asset_url }}"); 
+  background-image:url("../images/gift_banner1.jpg"); 
 }
 .inner_banner.subscribe_gift_banner{
-  background-image:url("{{ 'images/gift_banner1.jpg?v1' | asset_url }}"); 
+  background-image:url("../images/gift_banner1.jpg"); 
 }
 .inner_banner.store_banner{
-  background-image:url("{{ 'images/store-sec-bg.jpg' | asset_url }}");  
+  background-image:url("../images/store-sec-bg.jpg");  
 }
 .inner_banner.term_banner{
-  background-image:url("{{ 'images/subscribe_banner4.jpg' | asset_url }}"); 
+  background-image:url("../images/subscribe_banner4.jpg"); 
 }
 .inner_banner.faq_banner{
-  background-image:url("{{ 'images/faq_banner1.jpg' | asset_url }}"); 
+  background-image:url("../images/faq_banner1.jpg"); 
 }
 .inner_banner.giftbox_banner{
-  background-image:url("{{ 'images/gift_banner.jpg' | asset_url }}");
+  background-image:url("../images/gift_banner.jpg");
   
 }
 .banner_section .banner_cnt.home_banner_cnt{
@@ -1453,7 +1453,7 @@ a:hover{
 }
 
 .introduce_section{
-  background-image: url("{{ 'images/whatsinourbox3.jpg' | asset_url }}");
+  background-image: url("../images/whatsinourbox3.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1589,7 +1589,7 @@ a:hover{
   width:100%; 
 }
 .remodal{
-  background-image:url("{{ 'images/popup_bg.png' | asset_url }}");  
+  background-image:url("../images/popup_bg.png");  
   color:#fff;
 }
 .remodal h4{
@@ -1784,7 +1784,7 @@ a:hover{
   margin-bottom:0px;  
 }
 .drinking_section{
-  background-image:url("{{ 'images/drinking_img2.png?1' | asset_url }}");
+  background-image:url("../images/drinking_img2.png");
   background-repeat:no-repeat;
   background-position:left 50px;
   padding:30px 0px;
@@ -1982,7 +1982,7 @@ a:hover{
 .our_shop {
     padding: 80px 0;
     text-align: center;
-  background-image:url("{{ 'images/store-sec-bg.jpg' | asset_url }}");
+  background-image:url("../images/store-sec-bg.jpg");
   background-repeat:no-repeat;
   background-position:center;
   background-size:cover;
@@ -2041,7 +2041,7 @@ a:hover{
     font-size: 18px;
     font-weight: bold;
     padding: 5px 0 5px 20px;
-  background-image:url("{{ 'images/list-icon.png' | asset_url }}");
+  background-image:url("images/list-icon.png");
   background-repeat:no-repeat;
   background-position:left center;
 }
@@ -2051,7 +2051,7 @@ a:hover{
     position: relative;
     text-align: center;
   min-height:600px;
-  background-image:url("{{ 'images/sake-box-bg.jpg' | asset_url }}");
+  background-image:url("images/sake-box-bg.jpg");
   background-position:right 40px;
   background-repeat:no-repeat;
 }
@@ -2546,4 +2546,33 @@ a:hover{
   .tankyou_mail .thankyou_mail_content {
     width: 280px;
   }
+}
+
+/*For Temporary Button for J-pop Summit*/
+.jpop-btn {
+  margin-top: 30px;
+  background: #00aeef;
+  background-image: -webkit-linear-gradient(top, #00aeef, #00aeef);
+  background-image: -moz-linear-gradient(top, #00aeef, #00aeef);
+  background-image: -ms-linear-gradient(top, #00aeef, #00aeef);
+  background-image: -o-linear-gradient(top, #00aeef, #00aeef);
+  background-image: linear-gradient(to bottom, #00aeef, #00aeef);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 7px 10px 7px 10px;
+  text-decoration: none;
+}
+
+.jpop-btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
 }
