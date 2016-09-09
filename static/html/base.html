@@ -21,7 +21,7 @@
   <meta name="format-detection" content="telephone=no"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <title>
-    Kampai Sake Box | Japanese Sake Subscription Box 
+    TEST----Kampai Sake Box 
   </title>
   <!-- This code renders the standard meta tags, open graph tags, etc which can be configured via settings in the designer -->
   <link rel="canonical" href="http://www.kampaisakebox.com/"/>
@@ -96,6 +96,9 @@
   <!-- DON'T PUT JAVASCRIPT INCLUDES IN THE HEADER! Put them in the footer! -->
      
   </link>
+
+ 
+
     <!-- Facebook Pixel Code -->
   <script>
      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -122,6 +125,11 @@
     ga('send', 'pageview');
     </script>
     <!-- End Google Analytics Tracking Code -->
+
+<!-- For carousel @ main page-->
+  
+<!-- end of carousel -->
+
 </head>
 
 
@@ -226,6 +234,7 @@
                     Shipping - <div id="showAll" class="countdown_time"></div>
                     </div>-->
      </div>
+
      <!-- Temporary Button for J-POP Summmit -->
     <!--  <div class="col-sm-4">
       <div class="coupon_code_sec">
@@ -299,8 +308,10 @@
     </div>
    </div>
   </div>
+
+  <!-- ------------------------startof original ------------------------------------- -->
   
-  <div class="banner_section">
+<!--   <div class="banner_section">
    <div class="container">
     <div class="row">
      <div class="col-md-12">
@@ -320,17 +331,131 @@
         </a>
        </div>
       </div>
-     </div>
-     <!--<div class="col-md-6">
+     </div> -->
+
+
+     <!-- <div class="col-md-6" koreha komentoauto shiteatta!!!!!>
                 <div class="banner_img" data-barley="banner_img" data-barley-editor="image">
                 <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/banner_img.png?ts=1467432183&host=www.kampaisakebox.com" alt="banner_img"/>
                 </div>
-                </div>-->
+                </div> -->
+<!-- 
     </div>
    </div>
-  </div>
+  </div> -->
+
+<!-- ------------------------end of original ------------------------------------- -->
+
+<!-- -----------start of test----------------------------------------------------------- -->
+
+<!-- This demo works with jquery library -->
+
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/jssor.slider-21.1.5.mini.js"></script>
+  <!-- use jssor.slider-21.1.5.debug.js instead for debug -->
+  <script>
+      jQuery(document).ready(function ($) {
+          
+          var jssor_1_SlideoTransitions = [
+            [{b:-1,d:1,o:-1},{b:0,d:1000,o:1}],
+            [{b:1900,d:2000,x:-379,e:{x:7}}],
+            [{b:1900,d:2000,x:-379,e:{x:7}}],
+            [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:1000,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:1900,d:1600,x:-200,o:-1,e:{x:16}}]
+          ];
+          
+          var jssor_1_options = {
+            $AutoPlay: true,
+            $SlideDuration: 800,
+            $SlideEasing: $Jease$.$OutQuint,
+            $CaptionSliderOptions: {
+              $Class: $JssorCaptionSlideo$,
+              $Transitions: jssor_1_SlideoTransitions
+            },
+            $ArrowNavigatorOptions: {
+              $Class: $JssorArrowNavigator$
+            },
+            $BulletNavigatorOptions: {
+              $Class: $JssorBulletNavigator$
+            }
+          };
+          
+          var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+          
+          //responsive code begin
+          //you can remove responsive code if you don't want the slider scales while window resizing
+          function ScaleSlider() {
+              var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+              if (refSize) {
+                  refSize = Math.min(refSize, 1920);
+                  jssor_1_slider.$ScaleWidth(refSize);
+              }
+              else {
+                  window.setTimeout(ScaleSlider, 30);
+              }
+          }
+          ScaleSlider();
+          $(window).bind("load", ScaleSlider);
+          $(window).bind("resize", ScaleSlider);
+          $(window).bind("orientationchange", ScaleSlider);
+          //responsive code end
+      });
+  </script>
   
- 
+  <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; visibility: hidden;">
+    <!-- Loading Screen -->
+    <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+        <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+    </div>
+    <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+        <div data-p="225.00" style="display: none;">
+            <img data-u="image" src="../images/test_main_top_carousel1.jpg" />
+            <div style="position: absolute; top: 30px; left: 30px; width: 480px; height: 120px; font-size: 50px; color: #ffffff; line-height: 60px;">TOUCH SWIPE SLIDER</div>
+        </div>
+        <div data-p="225.00" data-po="80% 55%" style="display: none;">
+            <img data-u="image" src="../images/test_main_top_carousel2.jpg" />
+        </div>
+        <div data-p="225.00" data-po="80% 55%" style="display: none;">
+            <img data-u="image" src="../images/test_main_top_carousel3.jpg" />
+        </div>
+        <div data-p="225.00" data-po="80% 55%" style="display: none;">
+            <img data-u="image" src="../images/test_main_top_carousel4.jpg" />
+        </div>
+        <div data-p="225.00" data-po="80% 55%" style="display: none;">
+            <img data-u="image" src="../images/test_main_top_carousel5.jpg" />
+        </div>
+        <div data-p="225.00" data-po="80% 55%" style="display: none;">
+            <img data-u="image" src="../images/test_main_top_carousel6.jpg" />
+        </div>
+        <a data-u="any" href="http://www.jssor.com/demos/full-width-slider.slider" style="display:none">Full Width Slider</a>
+    
+    </div>
+    <!-- Bullet Navigator -->
+    <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+        <!-- bullet navigator item prototype -->
+        <div data-u="prototype" style="width:16px;height:16px;"></div>
+    </div>
+    <!-- Arrow Navigator -->
+    <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+    <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+
+    </div>
+
+<!-- #endregion Jssor Slider End -->
+
+</div>
+<div class = "row">
+  <div class = "col-md-12">
+    <div class = "button-bar">
+      <div class="button_box">
+        <a href="/subscribe" data-barley="home_subscribe_link" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">GET STARTED</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--   -----------end of test----------------------------------------------------------- -->
 
 <div class="whatis_section">
  <div class="container">
@@ -728,11 +853,12 @@
     We are sorry but you must be of legal drinking age to access our website.
    </h3>
   </div>
+
+  
+
   <!--age popup-->
-  <script src="../js/jquery-1.11.3.min.js">
-  </script>
-  <script src="../js/bootstrap.min.js">
-  </script>
+
+  <script src="../js/bootstrap.min.js"></script>
   <!-- ga.base() sets up google analytics. -->
   <!-- Configure the google analytics settings in the designer under Settings -->
   
@@ -763,22 +889,10 @@
     </script>
   
 
-  
-
-    
-
-
-
-
-
-
 
   
-  <script type="text/javascript" src="//kampaisakebox.cratejoy.com/stat_pixel/de1f46aa-0e50-4fde-bc93-3d230d1ed546" async></script>
+<script type="text/javascript" src="//kampaisakebox.cratejoy.com/stat_pixel/de1f46aa-0e50-4fde-bc93-3d230d1ed546" async></script>
   
-
-
-
 
 
 
@@ -839,100 +953,88 @@ window.no_address_manager = false;
 
 
   
-  <script type="text/javascript">
-  
-    window.coupon_code = "";
-  
+<script type="text/javascript">
 
-  window.gift_card_discount = 0;
-  </script>
-
-  
-    
-            <script type='text/javascript' src="//d3a1v57rabk2hm.cloudfront.net/978/js/store/mains/standard_main.js"></script>
-            
-  
+  window.coupon_code = "";
 
 
+window.gift_card_discount = 0;
+</script>
+ 
+<script type='text/javascript' src="//d3a1v57rabk2hm.cloudfront.net/978/js/store/mains/standard_main.js"></script>
 
 
-
-
-
-  
-  <script src="https://cratejoy.com/sift/pixel/de1f46aa-0e50-4fde-bc93-3d230d1ed546"></script>
-  <script async="async" src="https://cratejoy.com/lead_dyno/visit_store/274848712"></script>
-  
-
+<script src="https://cratejoy.com/sift/pixel/de1f46aa-0e50-4fde-bc93-3d230d1ed546"></script>
+<script async="async" src="https://cratejoy.com/lead_dyno/visit_store/274848712"></script>
 
 <script type="text/javascript">
-  if(jQuery('.dropdown-switch')) {
-    jQuery('.dropdown-switch').click(function(e){
-      e.preventDefault();
-      jQuery(this).parent().toggleClass('open');
-    });
-  }
+if(jQuery('.dropdown-switch')) {
+  jQuery('.dropdown-switch').click(function(e){
+    e.preventDefault();
+    jQuery(this).parent().toggleClass('open');
+  });
+}
 </script>
 
 
-  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.plugin.js?ts=1467432146&host=www.kampaisakebox.com" type="text/javascript">
-  </script>
-  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.countdown.min.js?ts=1467432143&host=www.kampaisakebox.com" type="text/javascript">
-  </script>
-  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.remodal.js?ts=1467432145&host=www.kampaisakebox.com" type="text/javascript">
-  </script>
-  <script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/instafeed.js?ts=1467432146&host=www.kampaisakebox.com" type="text/javascript">
-  </script>
-  <script type="text/javascript">
-   $(".mob_btn,#close").click(function(e){
-            e.preventDefault();
-            $("#mob_menu").toggleClass("show_menu");
-        });
-        $('#showAll').countdown({until: new Date("2016-02-01"), format: 'DHMS'});
-        if(window.localStorage.age_true){
-            window.location.hash = "";
-            
-        }
-        
-        setTimeout(function(){
-            window.localStorage.age=20; 
-        }, 1800000)
-        if(window.localStorage.age==20){
-            window.location.hash = "age";
-        }
-        $('.age_btn').click(function(e) {
-            window.localStorage.age = $(this).data().age;
-            if(window.localStorage.age==20){
-                window.location.hash = "sorry";
-        setTimeout(function(){
-                window.location = "https://www.google.com";
-        }, 3000)
-            }else{
-                window.location = "";
-                window.localStorage.age_true = true;
-                
-            }
-        });
-    $(window).unbind("scroll").scroll(function(){
-      var top = $(window).scrollTop();
-      if(top>110){
-       $(".scroll_nav").addClass("nav_fixed_top");
-      }else{
-       $(".scroll_nav").removeClass("nav_fixed_top");
+<script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.plugin.js?ts=1467432146&host=www.kampaisakebox.com" type="text/javascript">
+</script>
+<script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.countdown.min.js?ts=1467432143&host=www.kampaisakebox.com" type="text/javascript">
+</script>
+<script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/jquery.remodal.js?ts=1467432145&host=www.kampaisakebox.com" type="text/javascript">
+</script>
+<script src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel/js/instafeed.js?ts=1467432146&host=www.kampaisakebox.com" type="text/javascript">
+</script>
+<script type="text/javascript">
+ $(".mob_btn,#close").click(function(e){
+          e.preventDefault();
+          $("#mob_menu").toggleClass("show_menu");
+      });
+      $('#showAll').countdown({until: new Date("2016-02-01"), format: 'DHMS'});
+      if(window.localStorage.age_true){
+          window.location.hash = "";
+          
       }
-    });
-    var feed = new Instafeed({
-       get:"user",
-       userId:3231841555,
-       limit:4,
-       sortBy:"most-recent",
-       accessToken:"3231841555.97420b8.6fb270b22d5848a786e8c53154c0bb2f",
-       clientId:"97420b819f6d4cc59f2ff7e4de6888a8",
-       resolution:"low_resolution",
-       
-    });
-    feed.run();
-  </script>
+      
+      setTimeout(function(){
+          window.localStorage.age=20; 
+      }, 1800000)
+      if(window.localStorage.age==20){
+          window.location.hash = "age";
+      }
+      $('.age_btn').click(function(e) {
+          window.localStorage.age = $(this).data().age;
+          if(window.localStorage.age==20){
+              window.location.hash = "sorry";
+      setTimeout(function(){
+              window.location = "https://www.google.com";
+      }, 3000)
+          }else{
+              window.location = "";
+              window.localStorage.age_true = true;
+              
+          }
+      });
+  $(window).unbind("scroll").scroll(function(){
+    var top = $(window).scrollTop();
+    if(top>110){
+     $(".scroll_nav").addClass("nav_fixed_top");
+    }else{
+     $(".scroll_nav").removeClass("nav_fixed_top");
+    }
+  });
+  var feed = new Instafeed({
+     get:"user",
+     userId:3231841555,
+     limit:4,
+     sortBy:"most-recent",
+     accessToken:"3231841555.97420b8.6fb270b22d5848a786e8c53154c0bb2f",
+     clientId:"97420b819f6d4cc59f2ff7e4de6888a8",
+     resolution:"low_resolution",
+     
+  });
+  feed.run();
+</script>
   <!-- PUT JAVASCRIPT INCLUDES AND SNIPPETS HERE -->
   
 <script>
@@ -975,8 +1077,7 @@ window.no_address_manager = false;
         return false;
      });
 </script>
-
-
+<script language="JavaScript" type="text/javascript" src="../js/slide.js"></script>
     
  </body>
 </html>
