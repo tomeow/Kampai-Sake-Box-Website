@@ -1297,10 +1297,12 @@ a:hover{
   height:350px;
   background-image:url("../images/subscribe_banner3.jpg");
 }
+/*Testing color fading at #2600*/
 .inner_banner.about_banner{
   background-image:url("../images/about_banner1.jpg");
   text-align:center;
 }
+
 .inner_banner.our_box_banner{
   background-image:url("../images/our_box_banner2.jpg");
   padding-top:90px;
@@ -2642,11 +2644,54 @@ a:hover{
 .jssora22r.jssora22rdn { background-position: -310px -31px; }
 /*end of carousel*/
 
+/*This is for fading color for banner pic in "about us"* #1301 is oririginal*/
 
+/*inner_banner.about_banner > figure{
+  animation: imageAnimation 30s linear infinite 0s;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center center;
+  color: transparent;
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+}
+.inner_banner.about_banner > figure:nth-child(1) { 
+  background-image:url("../images/about_banner1.jpg"); }
+  text-align:center;
+}
 
+.inner_banner.about_banner > figure:nth-child(2) { 
+  background-image:url("../images/test-about_banner3.jpg"); }
+  text-align:center;
+  animation-delay: 4s;
+}
 
-
-
+.inner_banner.about_banner > figure:nth-child(3) { 
+  background-image:url("../images/test-about_banner4.jpg"); }
+  text-align:center;
+  animation-delay: 4s;
+}
+@keyframes 
+imageAnimation {  0% {
+ animation-timing-function: ease-in;
+ opacity: 0;
+}
+ 15% {
+ animation-timing-function: ease-out;
+ opacity: 1;
+}
+ 40% {
+ opacity: 1
+}
+ 100% {
+ opacity: 0
+}
+}*/
 
 
 

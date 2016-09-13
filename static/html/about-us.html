@@ -1,98 +1,441 @@
 <!-- If you're looking for the shared template that contains -->
 <!-- the header and footer, look in html/base.html -->
-{% extends "base.html" %}
+<!-- {% extends "base.html" %}
 
 
 
-{% block page_content %}
-<div class="content_section">
- <div class="container">
-  <div class="about_section mission">
-   <div class="row">
-    <div class="col-md-12">
-     <div class="about_box barley_hide_outline" data-barley="about_box1" data-barley-editor="advanced" contenteditable="false">
-      <h1>
-       KAMPAI SAKE BOX'S MISSION
-      </h1>
-     </div>
-    </div>
-    <div class="col-md-4">
-     <div class="sake_box1 barley_hide_outline" data-barley="sake_box1" data-barley-editor="advanced" contenteditable="false">
-      <div class="sake_box_img">
-       <img src="../images/democratize.jpg" alt="about_img1">
-       </img>
+{% block page_content %} -->
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>
+    TEST----Kampai Sake Box 
+  </title>
+  <!-- This code renders the standard meta tags, open graph tags, etc which can be configured via settings in the designer -->
+  <link rel="canonical" href="http://www.kampaisakebox.com/"/>
+  <meta property="og:url" content="http://www.kampaisakebox.com/"/>
+  <meta name="keywords" content="subscription sake"/>
+  <meta name="description" content="Introducing Kampai Sake Box, your sake subscription! A Japanese cultural experience delivered right to your door."/>
+  <meta property="og:title" content="Kampai Sake Box | Japanese Sake Subscription Box"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="../images/f1479956fcdb4db6952b12514cb8b82b.png"/>
+    <!-- css.base() puts in the base CSS used to style the checkout page, my account page, receipt page, etc -->
+    
+  <link href="../css/messenger.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/messenger-theme-block.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/font-awesome.css" rel="stylesheet" type="text/css" media="all"/>
+
+
+  <style>
+
+
+  .cj-color-main {
+    background-color: #92C75D;
+  }
+
+  .cratejoy-loading-icon {
+    color: #92C75D;
+  }
+
+  input[type="radio"] + label.cj-btn {
+    border: 1px solid #92C75D;
+    color: #92C75D;
+  }
+
+  input[type="radio"]:checked + label.cj-btn, #skip_button.skipped {
+    background-color: #92C75D;
+    color: #FFFFFF;
+    border-color: #92C75D;
+  }
+
+  input[type="radio"]:checked + label.cj-btn.term h4,
+  input[type="radio"]:checked + label.cj-btn.term h5 {
+    color: #FFFFFF;
+  }
+
+  #skip_button {
+    border: 1px solid #92C75D;
+    color: #92C75D;
+  }
+
+  #skip_button.skipped.hover {
+    color: #92C75D;
+    background-color: #FFFFFF;
+  }
+
+
+
+  </style>
+
+
+  <link href="../css/store.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="https://fonts.googleapis.com/css?family=" rel="stylesheet" type="text/css" >
+
+      
+  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/jquery.remodal.css" rel="stylesheet" type="text/css" >
+  <!-- Change your favicon location here if desired -->
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+
+      
+  <!-- DON'T PUT JAVASCRIPT INCLUDES IN THE HEADER! Put them in the footer! -->
+     
+  </link>
+
+ 
+
+    <!-- Facebook Pixel Code -->
+  <script>
+     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1552591865049452');
+  fbq('track', "PageView");
+    </script>
+    <noscript>
+     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1552591865049452&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- Google Analytics Tracking Code -->
+    <script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-80109622-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Tracking Code -->
+
+<!-- For carousel @ main page-->
+  
+<!-- end of carousel -->
+
+  </head>
+
+
+  <body class="">
+    <div class="top_section">
+     <div class="container">
+      <div class="row">
+       <div class="col-sm-6">
+        <div class="coupon_code_sec">
+         <p data-barley="coupon_code" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+          FREE SHIPPING ON ALL SUBSCRIPTION BOX
+         </p>
+        </div>
+        <!--<div class="countdown_box">
+                      Shipping - <div id="showAll" class="countdown_time"></div>
+                      </div>-->
+       </div>
+
+       <!-- Temporary Button for J-POP Summmit -->
+      <!--  <div class="col-sm-4">
+        <div class="coupon_code_sec">
+          <p data-barley="coupon_code" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+            <a href="http://www.kampaisakebox.com/shop/all/" class="jpop-btn">J-POP SPECIAL</a>
+          </p>
+        </div>
+       </div> -->
+
+       <div class="col-sm-6">
+        <div class="login_cart_box">
+         
+         <a href="/customer/login" data-barley="nav_login" data-barley-editor="link" class="login">
+          ACCOUNT
+         </a>
+         
+         <a href="/checkout" class="cart" data-barley="nav_cart" data-barley-editor="link">
+          Cart (0)
+         </a>
+        </div>
+       </div>
       </div>
-      <p>
-       DEMOCRATIZE SAKE
-      </p>
      </div>
     </div>
-    <div class="col-md-4">
-     <div class="sake_box1">
-      <div class="sake_box_img barley_hide_outline" data-barley="sake_box2" data-barley-editor="advanced" contenteditable="false">
-       <img src="../images/together.jpg" alt="about_img1"/>
+    <div class="nav_logo_section">
+     <div class="container">
+      <div class="row">
+       <div class="col-sm-12">
+        <div class="logo_box">
+         <a href="/" data-barley="logo" data-barley-editor="logo">
+          <img src="../images/logo.png" alt="logo"/>
+         </a>
+        </div>
+        <div class="nav_box">
+         <ul>
+          <li>
+           <a href="/how-it-works" data-barley="main_menu1" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+            how it works
+           </a>
+          </li>
+          <li>
+           <a href="/our-box" data-barley="main_menu2" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+            OUR BOX
+           </a>
+          </li>
+          <li>
+           <a href="/gift" data-barley="main_menu3" data-barley-editor="link">
+            GIFT
+           </a>
+          </li>
+          <li>
+           <a href="/shop" data-barley="main_menu4" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+            Shop
+           </a>
+          </li>
+          <li class="select">
+           <a href="/subscribe" data-barley="main_menu6" data-barley-editor="link">
+            SUBSCRIBE
+           </a>
+          </li>
+         </ul>
+        </div>
+        <div class="mobile_btn">
+         <a href="#" class="mob_btn">
+          <img src="./../images/mob_btn.png?ts=1467432168&host=www.kampaisakebox.com" alt="mob_btn"/>
+         </a>
+        </div>
+        <div class="clr">
+        </div>
+       </div>
       </div>
-      <p>
-       BRING PEOPLE TOGETHER
-      </p>
      </div>
     </div>
-    <div class="col-md-4">
-     <div class="sake_box1">
-      <div class="sake_box_img barley_hide_outline" data-barley="sake_box3" data-barley-editor="advanced" contenteditable="false">
-       <img src="../images/legacy2.jpg" alt="about_img1"/>
+
+
+
+    <!-- <div class="banner_section inner_banner about_banner" id="slideshow"> -->
+    <div class="banner_section inner_banner about_banner">
+     <div class="container">
+      <div class="row">
+       <div class="col-md-12">
+        <div class="banner_cnt barley_hide_outline" data-barley="banner_cnt1" data-barley-editor="advanced" contenteditable="false">
+          <figure></figure>
+          <figure></figure>
+          <figure></figure>
+          <h1>ABOUT US</h1>
+        </div>
+       </div>
       </div>
-      <p>
-       LEAVE A LEGACY
-      </p>
      </div>
     </div>
-    <div class="col-md-12">
-     <p data-barley="sake_box_p1" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
-      In our modern world, Sake culture seems mysterious and inaccessible to most. That’s why Kampai Sake is here - we want to bring the beauty of Sake to everyone. By helping you fall in love with Sake and increasing its consumption outside of Japan, we hope to allow Sake brewers to continue to preserve this centuries-old art form. We kampai (cheers) to bring together new drinkers and Japanese Sake brewers.
-     </p>
-     <p data-barley="sake_box_p2" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
-      With every box you receive, not only are you embarking on a Sake journey, but you are also helping those in need. Our philosophy is that business exists to support and contribute to communities. Let’s Kampai, have a blast and make a difference together!
-     </p>
-    </div>
-    <!--<div class="col-md-6">
-            <div class="image" data-barley="about_box_img1" data-barley-editor="image">
-            <img src="{{ 'images/any.png' | asset_url }}" alt="about_img1"/>
-            </div>
-            </div>-->
-   </div>
-  </div>
-  <div class="about_section">
-   <div class="row">
-    <div class="col-md-12">
-     <h1 data-barley="abt_head" data-barley-editor="text">
-      KAMPAI SAKE BOX STORY
-      <p>
-       <br>
-      </p>
-     </h1>
-    </div>
-    <div class="col-md-12">
-     <div class="about_box_img barley_hide_outline" data-barley="about_box_img" data-barley-editor="image">
-      <img src="{{ 'images/IMG_4290.jpg' | asset_url }}" alt="about_img2"/>
+
+    <div class="content_section">
+     <div class="container">
+      <div class="about_section mission">
+       <div class="row">
+        <div class="col-md-12">
+         <div class="about_box barley_hide_outline" data-barley="about_box1" data-barley-editor="advanced" contenteditable="false">
+          <h1>
+           KAMPAI SAKE BOX'S MISSION
+          </h1>
+         </div>
+        </div>
+        <div class="col-md-4">
+         <div class="sake_box1 barley_hide_outline" data-barley="sake_box1" data-barley-editor="advanced" contenteditable="false">
+          <div class="sake_box_img">
+           <img src="../images/democratize.jpg" alt="about_img1">
+           </img>
+          </div>
+          <p>
+           DEMOCRATIZE SAKE
+          </p>
+         </div>
+        </div>
+        <div class="col-md-4">
+         <div class="sake_box1">
+          <div class="sake_box_img barley_hide_outline" data-barley="sake_box2" data-barley-editor="advanced" contenteditable="false">
+           <img src="../images/together.jpg" alt="about_img1"/>
+          </div>
+          <p>
+           BRING PEOPLE TOGETHER
+          </p>
+         </div>
+        </div>
+        <div class="col-md-4">
+         <div class="sake_box1">
+          <div class="sake_box_img barley_hide_outline" data-barley="sake_box3" data-barley-editor="advanced" contenteditable="false">
+           <img src="../images/legacy2.jpg" alt="about_img1"/>
+          </div>
+          <p>
+           LEAVE A LEGACY
+          </p>
+         </div>
+        </div>
+        <div class="col-md-12">
+         <p data-barley="sake_box_p1" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+          In our modern world, Sake culture seems mysterious and inaccessible to most. That’s why Kampai Sake is here - we want to bring the beauty of Sake to everyone. By helping you fall in love with Sake and increasing its consumption outside of Japan, we hope to allow Sake brewers to continue to preserve this centuries-old art form. We kampai (cheers) to bring together new drinkers and Japanese Sake brewers.
+         </p>
+         <p data-barley="sake_box_p2" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+          With every box you receive, not only are you embarking on a Sake journey, but you are also helping those in need. Our philosophy is that business exists to support and contribute to communities. Let’s Kampai, have a blast and make a difference together!
+         </p>
+        </div>
+        <!--<div class="col-md-6">
+                <div class="image" data-barley="about_box_img1" data-barley-editor="image">
+                <img src="{{ 'images/any.png' | asset_url }}" alt="about_img1"/>
+                </div>
+                </div>-->
+       </div>
+      </div>
+      <div class="about_section">
+       <div class="row">
+        <div class="col-md-12">
+         <h1 data-barley="abt_head" data-barley-editor="text">
+          KAMPAI SAKE BOX STORY
+          <p>
+           <br>
+          </p>
+         </h1>
+        </div>
+        <div class="col-md-12">
+         <div class="about_box_img barley_hide_outline" data-barley="about_box_img" data-barley-editor="image">
+          <img src="../images/IMG_4290.jpg" alt="about_img2"/>
+         </div>
+         <div class="about_box_details barley_hide_outline" data-barley="about_box_img_1" data-barley-editor="advanced" contenteditable="false">
+          <p>
+           I was born and raised in Japan and originally moved to the US for school. I have deep ties with my native country and love learning about my own               culture and tradition. This joy intensifies when I am able to share this passion with others. It is through this process that I fell in love with the           beauty and exquisite craftsmanship of Sake making. Every Sake maker is an artist who creates unique types of Sake based on their region’s local                 traditions and climate. They unify their communities through celebration and tradition.
+          </p>
+          <p>
+           I do not consider myself a Sake expert, but I have always known to enjoy Sake fully by heart and yearned to introduce it to the world. I allow Sake                makers to tell their stories as I connect them to people who will enjoy drinking their Sake. From my corner in sunny California, I am happy to do my            part to cheer and support Japanese craftsmanship. Kampai to everyone!
+          </p>
+          <p class="sign">
+           <img src="../images/aboutus_sign.jpg" alt="about_img2">
+           </img>
+          </p>
+         </div>
+         <div class="clr">
+         </div>
+        </div>
+       </div>
+      </div>
      </div>
-     <div class="about_box_details barley_hide_outline" data-barley="about_box_img_1" data-barley-editor="advanced" contenteditable="false">
-      <p>
-       I was born and raised in Japan and originally moved to the US for school. I have deep ties with my native country and love learning about my own               culture and tradition. This joy intensifies when I am able to share this passion with others. It is through this process that I fell in love with the           beauty and exquisite craftsmanship of Sake making. Every Sake maker is an artist who creates unique types of Sake based on their region’s local                 traditions and climate. They unify their communities through celebration and tradition.
-      </p>
-      <p>
-       I do not consider myself a Sake expert, but I have always known to enjoy Sake fully by heart and yearned to introduce it to the world. I allow Sake                makers to tell their stories as I connect them to people who will enjoy drinking their Sake. From my corner in sunny California, I am happy to do my            part to cheer and support Japanese craftsmanship. Kampai to everyone!
-      </p>
-      <p class="sign">
-       <img src="../images/aboutus_sign.jpg?ts=1467432189&host=kampaisakebox.cratejoy.com" alt="about_img2">
-       </img>
-      </p>
-     </div>
-     <div class="clr">
-     </div>
     </div>
-   </div>
-  </div>
- </div>
-</div>
-{% endblock %}
+    <!-- {% endblock %}
+ -->
+            <div class="footer_section">
+     <div class="container">
+      <div class="row">
+       <div class="col-md-5 ">
+        <div class="footer_box barley_hide_outline" data-barley="footer_box1" data-barley-editor="advanced" contenteditable="false">
+         <div class="footer_logo">
+          <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/footer_logo.png?ts=1464841460&amp;host=kampaisakebox.cratejoy.com">
+          
+         </div>
+         <p>
+          We take you on a cultural journey to Japan and introduce you to exquisite Sake.
+         </p>
+         <p class="readmore">
+          <a href="/about-us">
+           Read more &gt;&gt;
+          </a>
+         </p>
+        </div>
+       </div>
+       <div class="col-md-2">
+        <div class="footer_box barley_hide_outline" data-barley="footer_box2" data-barley-editor="advanced" contenteditable="false">
+         <h2>
+          Quick Links
+         </h2>
+         <ul>
+          <li>
+           <a href="/about-us">
+            About US
+           </a>
+          </li>
+          <li>
+           <a href="/contact">
+            CONTACT US
+           </a>
+          </li>
+          <li>
+           <a href="/our-box">
+            Our Box
+           </a>
+          </li>
+          <li>
+           <a href="/gift">
+            Gift
+           </a>
+          </li>
+          <li>
+           <a href="/shop">
+            Shop
+           </a>
+          </li>
+          <li>
+           <a href="https://kampaiblog.wordpress.com/" target="_blank">
+            Blog
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="col-md-2">
+        <div class="footer_box" data-barley="footer_box3" data-barley-editor="advanced">
+         <h2>
+          Information
+         </h2>
+         <ul>
+          <li>
+           <a href="/faq">
+            FAQS
+           </a>
+          </li>
+          <li>
+           <a href="/terms_conditions">
+            terms &amp; conditions
+           </a>
+          </li>
+          <li>
+           <a href="/privacy-policy">
+            privacy policy
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="col-md-3">
+        <div class="footer_box footer_last_box barley_hide_outline" data-barley="footer_box4" data-barley-editor="advanced" contenteditable="false">
+         <h2>
+          Contact Us
+         </h2>
+         <p>
+          <a href="mailto:info@kampaisakebox.com?edit=1&amp;edit_theme_id=313850759?edit=1&amp;edit_theme_id=313850759">
+           Info@kampaisakebox.com
+          </a>
+         </p>
+         <h2>
+          Follow us on
+         </h2>
+         <div class="social_links">
+          <a href="https://www.facebook.com/kampaisakebox/" contenteditable="false" target="_blank">
+           <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/fb.png?ts=1469210687&amp;host=kampaisakebox.com" alt="fb">
+          </a>
+          <a href="https://www.instagram.com/kampaisakebox/" contenteditable="false" target="_blank">
+           <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/ins.png?ts=1469210655&amp;host=kampaisakebox.com" alt="ins">
+          </a>
+          <!--<a href="#" target="_blank">
+           <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/pin.png?ts=1469210659&host=kampaisakebox.com" alt="pin"/>
+          </a>-->
+          <a href="https://twitter.com/kampaisakebox" contenteditable="false" target="_blank">
+           <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/tw.png?ts=1469210658&amp;host=kampaisakebox.com" alt="tw">
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+  </body>
+</html>

@@ -1,113 +1,468 @@
 <!-- If you're looking for the shared template that contains -->
 <!-- the header and footer, look in html/base.html -->
-{% extends "base.html" %}
+<!-- {% extends "base.html" %}
 
 
 
-{% block page_content %}
-<div class="content_section">
- <div class="container">
-  <div class="row">
-   <div class="col-md-12">
-    <div class="store_box_section">
-     <h1 class="text-center barley_hide_outline" data-barley="gift_heading" data-barley-editor="text" contenteditable="false">
-      <span style="font-weight: normal;">
-       OUR SELECTIONS
-      </span>
-     </h1>
-     <div class="row">
-      {% for product in store.shop_products(category='product-box') %}
-        {% set product_image = 'images/store_img1.jpg' | asset_url %}
-        {% if(product.images|length)>0 %}{% set product_image = product.images[0].url %}{% endif %}
-      <div class="col-md-4 col-sm-6">
-       <div class="store_box">
-        <a href="/shop/product/{{ product.id }}">
-         <div class="image">
-          <img src="{{ product_image }}" alt="store_img1"/>
-         </div>
-        </a>
-        <h2>
-         {{ product.name }}
-        </h2>
-        <h3>
-         {% set min = product.calc_min_ecom_price() %}
-            {% set max = product.calc_max_ecom_price() %}
+{% block page_content %} -->
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>
+    TEST----Kampai Sake Box 
+  </title>
+  <!-- This code renders the standard meta tags, open graph tags, etc which can be configured via settings in the designer -->
+  <link rel="canonical" href="http://www.kampaisakebox.com/"/>
+  <meta property="og:url" content="http://www.kampaisakebox.com/"/>
+  <meta name="keywords" content="subscription sake"/>
+  <meta name="description" content="Introducing Kampai Sake Box, your sake subscription! A Japanese cultural experience delivered right to your door."/>
+  <meta property="og:title" content="Kampai Sake Box | Japanese Sake Subscription Box"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="../images/f1479956fcdb4db6952b12514cb8b82b.png"/>
+    <!-- css.base() puts in the base CSS used to style the checkout page, my account page, receipt page, etc -->
+    
+  <link href="../css/messenger.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/messenger-theme-block.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/font-awesome.css" rel="stylesheet" type="text/css" media="all"/>
 
-            {% if max == min %}
-         <span class="price">
-          {{ min | currency(0) }}
-         </span>
-         {% else %}
-         <span class="price">
-          {{ min | currency(0) }} - {{ max | currency(0) }}
-         </span>
-         {% endif %}
-        </h3>
-        <!--<div class="addtocart">
-         <a href="/shop/product/{{ product.id }}">
-          ADD TO CART
+
+  <style>
+
+
+  .cj-color-main {
+    background-color: #92C75D;
+  }
+
+  .cratejoy-loading-icon {
+    color: #92C75D;
+  }
+
+  input[type="radio"] + label.cj-btn {
+    border: 1px solid #92C75D;
+    color: #92C75D;
+  }
+
+  input[type="radio"]:checked + label.cj-btn, #skip_button.skipped {
+    background-color: #92C75D;
+    color: #FFFFFF;
+    border-color: #92C75D;
+  }
+
+  input[type="radio"]:checked + label.cj-btn.term h4,
+  input[type="radio"]:checked + label.cj-btn.term h5 {
+    color: #FFFFFF;
+  }
+
+  #skip_button {
+    border: 1px solid #92C75D;
+    color: #92C75D;
+  }
+
+  #skip_button.skipped.hover {
+    color: #92C75D;
+    background-color: #FFFFFF;
+  }
+
+
+
+  </style>
+
+
+  <link href="../css/store.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="https://fonts.googleapis.com/css?family=" rel="stylesheet" type="text/css" >
+
+      
+  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="../css/jquery.remodal.css" rel="stylesheet" type="text/css" >
+  <!-- Change your favicon location here if desired -->
+  <link href="../images/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+
+      
+  <!-- DON'T PUT JAVASCRIPT INCLUDES IN THE HEADER! Put them in the footer! -->
+     
+  </link>
+
+ 
+
+    <!-- Facebook Pixel Code -->
+  <script>
+     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1552591865049452');
+  fbq('track', "PageView");
+    </script>
+    <noscript>
+     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1552591865049452&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- Google Analytics Tracking Code -->
+    <script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-80109622-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Tracking Code -->
+
+  <!-- For carousel @ main page-->
+    
+  <!-- end of carousel -->
+
+  </head>
+
+
+  <body class="">
+
+
+    <div class="top_section">
+     <div class="container">
+      <div class="row">
+       <div class="col-sm-6">
+        <div class="coupon_code_sec">
+         <p data-barley="coupon_code" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+          FREE SHIPPING ON ALL SUBSCRIPTION BOX
+         </p>
+        </div>
+        <!--<div class="countdown_box">
+                      Shipping - <div id="showAll" class="countdown_time"></div>
+                      </div>-->
+       </div>
+
+       <!-- Temporary Button for J-POP Summmit -->
+      <!--  <div class="col-sm-4">
+        <div class="coupon_code_sec">
+          <p data-barley="coupon_code" data-barley-editor="simple" contenteditable="false" class="barley_hide_outline">
+            <a href="http://www.kampaisakebox.com/shop/all/" class="jpop-btn">J-POP SPECIAL</a>
+          </p>
+        </div>
+       </div> -->
+
+       <div class="col-sm-6">
+        <div class="login_cart_box">
+         
+         <a href="/customer/login" data-barley="nav_login" data-barley-editor="link" class="login">
+          ACCOUNT
          </a>
-        </div>-->
+         
+         <a href="/checkout" class="cart" data-barley="nav_cart" data-barley-editor="link">
+          Cart (0)
+         </a>
+        </div>
        </div>
       </div>
-      {% endfor %}
      </div>
     </div>
-    <!--<div class="store_box_section">
-     <h1 class="text-center">
-      Other Items
-     </h1>
-     <div class="row">
-      {% for product in store.shop_products(category='other-box') %}
+
+    <div class="nav_logo_section">
+     <div class="container">
+      <div class="row">
+       <div class="col-sm-12">
+        <div class="logo_box">
+         <a href="/" data-barley="logo" data-barley-editor="logo">
+          <img src="../images/logo.png" alt="logo"/>
+         </a>
+        </div>
+        <div class="nav_box">
+         <ul>
+          <li>
+           <a href="/how-it-works" data-barley="main_menu1" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+            how it works
+           </a>
+          </li>
+          <li>
+           <a href="/our-box" data-barley="main_menu2" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+            OUR BOX
+           </a>
+          </li>
+          <li>
+           <a href="/gift" data-barley="main_menu3" data-barley-editor="link">
+            GIFT
+           </a>
+          </li>
+          <li>
+           <a href="/shop" data-barley="main_menu4" data-barley-editor="link" contenteditable="false" class="barley_hide_outline">
+            Shop
+           </a>
+          </li>
+          <li class="select">
+           <a href="/subscribe" data-barley="main_menu6" data-barley-editor="link">
+            SUBSCRIBE
+           </a>
+          </li>
+         </ul>
+        </div>
+        <div class="mobile_btn">
+         <a href="#" class="mob_btn">
+          <img src="./../images/mob_btn.png?ts=1467432168&host=www.kampaisakebox.com" alt="mob_btn"/>
+         </a>
+        </div>
+        <div class="clr">
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+
+
+<!--  hiding for test 9/12/16-->
+   <!--  <div class="content_section">
+     <div class="container">
+      <div class="row">
+       <div class="col-md-12">
+        <div class="store_box_section">
+         <h1 class="text-center barley_hide_outline" data-barley="gift_heading" data-barley-editor="text" contenteditable="false">
+          <span style="font-weight: normal;">
+           OUR SELECTIONS
+          </span>
+         </h1>
+         <div class="row">
+          {% for product in store.shop_products(category='product-box') %}
             {% set product_image = 'images/store_img1.jpg' | asset_url %}
             {% if(product.images|length)>0 %}{% set product_image = product.images[0].url %}{% endif %}
-      <div class="col-md-3 col-sm-6">
-       <div class="store_box">
-        <div class="image">
-         <img src="{{ product_image }}" alt="store_img1"/>
-        </div>
-        <h2>
-         {{ product.name }}
-        </h2>
-        <h3>
-         {% set min = product.calc_min_ecom_price() %}
-            {% set max = product.calc_max_ecom_price() %}
+          <div class="col-md-4 col-sm-6">
+           <div class="store_box">
+            <a href="/shop/product/{{ product.id }}">
+             <div class="image">
+              <img src="{{ product_image }}" alt="store_img1"/>
+             </div>
+            </a>
+            <h2>
+             {{ product.name }}
+            </h2>
+            <h3>
+             {% set min = product.calc_min_ecom_price() %}
+                {% set max = product.calc_max_ecom_price() %}
 
-            {% if max == min %}
-         <span class="price">
-          {{ min | currency(0) }}
-         </span>
-         {% else %}
-         <span class="price">
-          {{ min | currency(0) }} - {{ max | currency(0) }}
-         </span>
-         {% endif %}
-        </h3>
-        <div class="addtocart">
-         <a href="/shop/product/{{ product.id }}">
-          ADD TO CART
-         </a>
-        </div>
-       </div>
+                {% if max == min %}
+             <span class="price">
+              {{ min | currency(0) }}
+             </span>
+             {% else %}
+             <span class="price">
+              {{ min | currency(0) }} - {{ max | currency(0) }}
+             </span>
+             {% endif %}
+            </h3> -->
+
+
+            <!-- this was hidden originally -->
+        <!--     <div class="addtocart">
+             <a href="/shop/product/{{ product.id }}">
+              ADD TO CART
+             </a>
+            </div> -->
+            <!-- end of this was hidden originally -->
+
+<!-- this was hidden originally -->
+    <!--        </div>
+          </div>
+          {% endfor %}
+         </div>
+        </div> -->
+
+        <!--  hiding for test 9/12/16-->
+
+        <!--<div class="store_box_section">
+         <h1 class="text-center">
+          Other Items
+         </h1>
+         <div class="row">
+          {% for product in store.shop_products(category='other-box') %}
+                {% set product_image = 'images/store_img1.jpg' | asset_url %}
+                {% if(product.images|length)>0 %}{% set product_image = product.images[0].url %}{% endif %}
+          <div class="col-md-3 col-sm-6">
+           <div class="store_box">
+            <div class="image">
+             <img src="{{ product_image }}" alt="store_img1"/>
+            </div>
+            <h2>
+             {{ product.name }}
+            </h2>
+            <h3>
+             {% set min = product.calc_min_ecom_price() %}
+                {% set max = product.calc_max_ecom_price() %}
+
+                {% if max == min %}
+             <span class="price">
+              {{ min | currency(0) }}
+             </span>
+             {% else %}
+             <span class="price">
+              {{ min | currency(0) }} - {{ max | currency(0) }}
+             </span>
+             {% endif %}
+            </h3>
+            <div class="addtocart">
+             <a href="/shop/product/{{ product.id }}">
+              ADD TO CART
+             </a>
+            </div>
+           </div>
+          </div>
+          {% endfor %}
+         </div>
+        </div>-->
+
+        <!-- end of this was hidden originally -->
+
+
+<!--        </div>
       </div>
-      {% endfor %}
      </div>
-    </div>-->
-   </div>
+    </div> -->
+<!--  end of hiding for test 9/12/16-->
+
+<!-- test -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src = "../images/test-ourselection1.png">
+      </div>
+    </div>
   </div>
- </div>
-</div>
-<div class="subscribe_contact">
- <div class="container">
-  <div class="row">
-   <div class="col-md-12">
-    <div data-barley="subscribe_contact" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
-     <h4>
-      Please contact us for large quantity orders and customized gifts
-     </h4>
+
+  <div class="subscribe_contact">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <div data-barley="subscribe_contact" data-barley-editor="advanced" contenteditable="false" class="barley_hide_outline">
+       <h4>
+        Please contact us for large quantity orders and customized gifts
+       </h4>
+      </div>
+     </div>
     </div>
    </div>
   </div>
- </div>
-</div>
-{% endblock %}
+  <!-- {% endblock %} -->
+
+  <div class="footer_section">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-5 ">
+      <div class="footer_box barley_hide_outline" data-barley="footer_box1" data-barley-editor="advanced" contenteditable="false">
+       <div class="footer_logo">
+        <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/betterman/images/footer_logo.png?ts=1464841460&amp;host=kampaisakebox.cratejoy.com">
+        
+       </div>
+       <p>
+        We take you on a cultural journey to Japan and introduce you to exquisite Sake.
+       </p>
+       <p class="readmore">
+        <a href="/about-us">
+         Read more &gt;&gt;
+        </a>
+       </p>
+      </div>
+     </div>
+     <div class="col-md-2">
+      <div class="footer_box barley_hide_outline" data-barley="footer_box2" data-barley-editor="advanced" contenteditable="false">
+       <h2>
+        Quick Links
+       </h2>
+       <ul>
+        <li>
+         <a href="/about-us">
+          About US
+         </a>
+        </li>
+        <li>
+         <a href="/contact">
+          CONTACT US
+         </a>
+        </li>
+        <li>
+         <a href="/our-box">
+          Our Box
+         </a>
+        </li>
+        <li>
+         <a href="/gift">
+          Gift
+         </a>
+        </li>
+        <li>
+         <a href="/shop">
+          Shop
+         </a>
+        </li>
+        <li>
+         <a href="https://kampaiblog.wordpress.com/" target="_blank">
+          Blog
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="col-md-2">
+      <div class="footer_box" data-barley="footer_box3" data-barley-editor="advanced">
+       <h2>
+        Information
+       </h2>
+       <ul>
+        <li>
+         <a href="/faq">
+          FAQS
+         </a>
+        </li>
+        <li>
+         <a href="/terms_conditions">
+          terms &amp; conditions
+         </a>
+        </li>
+        <li>
+         <a href="/privacy-policy">
+          privacy policy
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="col-md-3">
+      <div class="footer_box footer_last_box barley_hide_outline" data-barley="footer_box4" data-barley-editor="advanced" contenteditable="false">
+       <h2>
+        Contact Us
+       </h2>
+       <p>
+        <a href="mailto:info@kampaisakebox.com?edit=1&amp;edit_theme_id=313850759?edit=1&amp;edit_theme_id=313850759">
+         Info@kampaisakebox.com
+        </a>
+       </p>
+       <h2>
+        Follow us on
+       </h2>
+       <div class="social_links">
+        <a href="https://www.facebook.com/kampaisakebox/" contenteditable="false" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/fb.png?ts=1469210687&amp;host=kampaisakebox.com" alt="fb">
+        </a>
+        <a href="https://www.instagram.com/kampaisakebox/" contenteditable="false" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/ins.png?ts=1469210655&amp;host=kampaisakebox.com" alt="ins">
+        </a>
+        <!--<a href="#" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/pin.png?ts=1469210659&host=kampaisakebox.com" alt="pin"/>
+        </a>-->
+        <a href="https://twitter.com/kampaisakebox" contenteditable="false" target="_blank">
+         <img src="//d3a1v57rabk2hm.cloudfront.net/kampaisakebox/parcel-copy-1/images/tw.png?ts=1469210658&amp;host=kampaisakebox.com" alt="tw">
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  </body>
+</html>
