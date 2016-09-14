@@ -28,7 +28,7 @@ app.use(express.static('assets'));
 // Root Request
 app.get('/', function (req, res) {
 
-  res.sendFile(__dirname + '/static/html/base.html');
+  res.sendFile(__dirname + '/static/html/index.html');
 });
 
 app.get('/how-it-works', function (req, res) {

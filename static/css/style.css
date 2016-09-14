@@ -1465,7 +1465,7 @@ a:hover{
     padding: 14px;
 }
 
-.introduce_section{
+/*.introduce_section{
   background-image: url("../images/whatsinourbox3.jpg");
     background-position: center center;
     background-repeat: no-repeat;
@@ -1476,9 +1476,52 @@ a:hover{
     padding: 80px 0;
     text-align: center;
 }
-.introduce_section h1{
-  color:#ffffff;  
+*/
+
+/*------------------test for fix&scroll background--------------------------------------------*/
+.introduce_section.h3{
+  /*background-image: linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url("../images/whatsinourbox3.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 80px 0;
+    text-align: center;*/
+    /*transition: transform 500ms; transform: translateX(0px) translateY(0px) translateZ(0px);*/
+    font-color: white;
 }
+
+.cd-fixed-bg {
+  width: 100%;
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.cd-fixed-bg.cd-bg-1 {
+  background-image: url("../images/whatsinourbox3.jpg");
+  background-size: 1300px 500px;
+  color:#ffffff; 
+  text-align: center;
+  padding: 70px 40px 10px 40px;
+
+}
+
+.cd-scrolling-bg {
+  min-height: 100%;
+}
+
+
+.introduce_section h3{
+  text-align: center;
+  color:#ffffff;  
+  font-size: 45px;
+}
+/*------------------end of test for fix&scroll background--------------------------------------------*/
 .newsletter_community{
   background:#fff;
   padding:60px 0px; 
@@ -1993,12 +2036,48 @@ a:hover{
   line-height:35px;
 }
 .our_shop {
-    padding: 80px 0;
-    text-align: center;
+/*  padding: 80px 0;*
+  text-align: center;
   background-image:url("../images/store-sec-bg.jpg");
   background-repeat:no-repeat;
   background-position:center;
-  background-size:cover;
+  background-size:cover;*/
+
+}
+
+.our_shop h3, h4{
+  color:#ffffff; 
+  text-align: center;
+  padding: 70px 40px 10px 40px;
+}
+
+.cd-fixed-bg1 {
+  width: 100%;
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.cd-fixed-bg1.cd-bg-2{
+  background-image: url("../images/store-sec-bg.jpg");
+  background-size: 1300px 500px;
+  color:#ffffff; 
+  text-align: center;
+  padding-top: 50px;
+
+}
+
+.our_shop.cd-scrolling-bg1 {
+  min-height: 100%;
+}
+
+
+.introduce_section h3{
+  text-align: center;
+  color:#ffffff;  
+  font-size: 45px;
 }
 
 .our_shop .our_shop-content > h1 {
